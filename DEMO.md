@@ -18,4 +18,4 @@ Read the accepted update, last checked time, revision, observation signal, exact
 Wallet approvals are required for owner writes. See PRODUCT_ACCEPTANCE_REPORT.md for the exact live browser-wallet coverage; Studio signing and product extension signing are not conflated. Do not perform extra transactions merely to inspect this verified example.
 
 ## Evidence
-See ONCHAIN_REPORT.md, evidence-fast2/ONCHAIN_EVIDENCE_INDEX.json and deployment.json. All six transactions were FINALIZED / MAJORITY_AGREE / SUCCESS. No Portal entry has been submitted.
+See ONCHAIN_REPORT.md, evidence-fast2/ONCHAIN_EVIDENCE_INDEX.json and deployment.json. All six transactions were FINALIZED / MAJORITY_AGREE / SUCCESS. Portal submission status is separate from the live product example.

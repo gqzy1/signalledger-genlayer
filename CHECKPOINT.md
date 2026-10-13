@@ -1,3 +1,5 @@
+> **Historical pre-deployment test baseline (2026-10-13).** This file records the initial implementation status. Current onchain and browser verification are in [ONCHAIN_REPORT.md](ONCHAIN_REPORT.md) and [PRODUCT_ACCEPTANCE_REPORT.md](PRODUCT_ACCEPTANCE_REPORT.md).
+
 # FAST-1 checkpoint — 2026-10-13
 
 | Check actually executed | Result |

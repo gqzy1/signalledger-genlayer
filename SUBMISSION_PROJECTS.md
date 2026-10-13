@@ -20,6 +20,6 @@ UNKNOWN is visible as an observation and preserves the last accepted state; sour
 4. https://github.com/gqzy1/signalledger-genlayer/blob/main/intelligent-contract/SOURCE_PROVENANCE.md
 5. https://gqzy1.github.io/signalledger-genlayer/?w=1
 
-These evidence URLs are distinct from the Intelligent Contracts submission draft. This repository includes the COMPLETE official Python contract at intelligent-contract/contracts/signal_ledger.py with a source digest check, rather than a wrapper or abbreviated example. MIT License covers the repository. No Portal entry has been sent.
+These links document the published product, verifiable onchain state and source provenance separately from the Intelligent Contracts repository's evidence. The complete Python contract at intelligent-contract/contracts/signal_ledger.py is byte-for-byte identical to the canonical deployed source. The repository is MIT licensed. Portal submission status is not inferred from this file.
 
 Read PRODUCT_ACCEPTANCE_REPORT.md for the exact browser and wallet testing coverage. Unit tests are not represented as live browser-wallet writes; official Studio signing and extension signing have separate statuses.

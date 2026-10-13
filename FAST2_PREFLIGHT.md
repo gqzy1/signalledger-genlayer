@@ -1,3 +1,5 @@
+> **Historical pre-deployment snapshot.** The authorization and NOT RUN statements below describe this earlier stage only. See [ONCHAIN_REPORT.md](ONCHAIN_REPORT.md) and [PRODUCT_ACCEPTANCE_REPORT.md](PRODUCT_ACCEPTANCE_REPORT.md) for subsequent acceptance.
+
 # FAST-2 deployment preflight checkpoint
 
 ## Verified
@@ -33,8 +35,8 @@ Minimum planned execution is five transactions: deploy, create fast2-eu-api, the
 
 ## Execution gate
 
-The user's FAST-2 section B explicitly prohibits deployment and writes without explicit approval. No deployment or contract write was submitted. The cloud Studio currently shows its own built-in account with 0 GEN and an available Connect Wallet control; it does not establish access to the user's funded local wallet. A usable user-approved signer is still needed. Do not request private keys or seed phrases. No faucet or paid service is required merely to record this checkpoint.
+No deployment or contract write had been submitted at this preflight stage. Studio exposed a built-in account, but signing access and deployment suitability remained to be verified. No private credentials were requested or exported.
 
-Neither track is submission ready: real finalized evidence and public frontend chain-read acceptance remain outstanding. deployment.json remains truthfully NOT DEPLOYED / NOT RUN. Resume from this checkpoint; if any future transaction is sent, archive and track its original hash before considering a retry. No product redesign or network change was made.
+At this pre-deployment stage, finalized evidence and public frontend chain reads were outstanding, and deployment.json recorded NOT DEPLOYED / NOT RUN. Later six-transaction consensus acceptance and the published frontend are documented in ONCHAIN_REPORT.md and PRODUCT_ACCEPTANCE_REPORT.md. No network change occurred.
 
 Product acceptance plan: [LIVE_ACCEPTANCE.md](LIVE_ACCEPTANCE.md). The entire canonical source remains included at intelligent-contract/contracts/signal_ledger.py.
