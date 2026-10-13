@@ -2,8 +2,19 @@
   "network": "Stable Studionet",
   "chainId": 61999,
   "rpc": "https://studio.genlayer.com/api",
-  "contractAddress": null,
+  "contractAddress": "0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247",
   "sourceSha256": "89d4f8e3ee117a9dbe6acd086f3363645cad34ba84fc83e54a1773d291be7daa",
-  "liveValidation": "NOT RUN",
-  "deploymentStatus": "NOT DEPLOYED"
+  "liveValidation": "PARTIAL \u2014 RECOVERY SCENARIO FAILED",
+  "deploymentStatus": "DEPLOYED",
+  "deploymentTransaction": "0xad010dbb93a50af9674658311f8f100aca36022e596c6149bcd7daa5fc2bb4b8",
+  "monitorId": "fast2-eu-api",
+  "liveAcceptance": {
+    "deployment": "PASS",
+    "createMonitor": "PASS",
+    "outage": "PASS",
+    "recovery": "FAIL \u2014 retrieved prior outage source",
+    "insufficientEvidence": "NOT RUN",
+    "frontendExtensionWallet": "NOT RUN",
+    "publicWebsite": "NOT RUN"
+  }
 }

@@ -27,7 +27,7 @@ export function receiptState(tx:unknown):'pending'|'success'|'failed'|'unverifie
   const status=String(t.statusName??t.status??'').toUpperCase();
   if(['UNDETERMINED','CANCELED','VALIDATORS_TIMEOUT','LEADER_TIMEOUT'].includes(status)) return 'failed';
   if(status!=='FINALIZED' && status!=='7') return 'pending';
-  const votes=Object.values(t.consensus_data?.votes??{});
+ const votes=Object.values(t.consensus_data?.votes??{}).map(v=>v.toUpperCase());
   const agreed=t.resultName==='MAJORITY_AGREE' || (votes.length>=3 && votes.filter(x=>x==='AGREE').length>votes.length/2);
   const executed=t.txExecutionResult===1 || t.txExecutionResultName==='FINISHED_WITH_RETURN' || t.consensus_data?.leader_receipt?.at(-1)?.execution_result==='SUCCESS';
   if(t.txExecutionResult===2 || t.txExecutionResultName==='FINISHED_WITH_ERROR' || ['MAJORITY_DISAGREE','FAILURE','TIMEOUT','NO_MAJORITY'].includes(t.resultName??'') || t.consensus_data?.leader_receipt?.at(-1)?.execution_result==='ERROR') return 'failed';

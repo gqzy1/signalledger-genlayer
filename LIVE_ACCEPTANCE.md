@@ -17,4 +17,4 @@ If the bulletin is older than seven days at execution, refresh it before the fir
 
 ## Current live status
 
-Deployment, real AI consensus, wallet E2E, deployed reads and public website acceptance: NOT RUN. Approval and a usable browser signer are still required. The preflight performs reads only. Never replace these statuses with PASS based on unit tests or CI. No Portal submission is included.
+Deployment, monitor creation, real OUTAGE consensus and finalized reads: PASS. Recovery acceptance: FAIL (old source retrieved). UNKNOWN retention, product frontend wallet E2E and public website acceptance: NOT RUN. Four of the five authorized transactions were sent; no additional transaction was sent. See FAST2_EXECUTION_CHECKPOINT.md. A new recovery transaction requires additional explicit approval. Never replace these statuses with PASS based on unit tests or CI. No Portal submission is included.

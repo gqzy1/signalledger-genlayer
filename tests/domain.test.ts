@@ -12,6 +12,7 @@ describe('honest transaction lifecycle',()=>{
  it('requires consensus AND execution evidence',()=>{expect(receiptState({statusName:'FINALIZED'})).toBe('unverified');expect(receiptState({statusName:'FINALIZED',resultName:'MAJORITY_AGREE'})).toBe('unverified');expect(receiptState({statusName:'FINALIZED',txExecutionResult:1})).toBe('unverified')});
  it('accepts finalized SDK result with execution proof',()=>expect(receiptState({statusName:'FINALIZED',resultName:'MAJORITY_AGREE',txExecutionResult:1})).toBe('success'));
  it('supports stable Studio vote and receipt proof',()=>expect(receiptState({statusName:'FINALIZED',consensus_data:{votes:{a:'AGREE',b:'AGREE',c:'AGREE',d:'DISAGREE',e:'DISAGREE'},leader_receipt:[{execution_result:'SUCCESS'}]}})).toBe('success'));
+ it('recognizes lowercase votes returned by the real Studio RPC',()=>expect(receiptState({statusName:'FINALIZED',consensus_data:{votes:{a:'agree',b:'agree',c:'agree',d:'idle',e:'idle'},leader_receipt:[{execution_result:'SUCCESS'}]}})).toBe('success'));
  it.each(['UNDETERMINED','CANCELED','LEADER_TIMEOUT','VALIDATORS_TIMEOUT'])('fails terminal %s',statusName=>expect(receiptState({statusName})).toBe('failed'));
  it('does not turn finalized execution error into PASS',()=>expect(receiptState({statusName:'FINALIZED',resultName:'MAJORITY_AGREE',txExecutionResult:2})).toBe('failed'));
  it('does not accept a minority',()=>expect(receiptState({statusName:'FINALIZED',consensus_data:{votes:{a:'AGREE',b:'DISAGREE',c:'DISAGREE'},leader_receipt:[{execution_result:'SUCCESS'}]}})).toBe('unverified'));

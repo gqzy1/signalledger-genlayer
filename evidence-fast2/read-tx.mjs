@@ -1,0 +1,2 @@
+import {createClient} from 'genlayer-js';import {studionet} from 'genlayer-js/chains';import {writeFile} from 'node:fs/promises';
+const c=createClient({chain:studionet,endpoint:'https://studio.genlayer.com/api'});const t=await c.getTransaction({hash:process.argv[2]});await writeFile(process.argv[3],JSON.stringify(t,null,2));console.log(JSON.stringify({hash:t.hash,status:t.statusName,result:t.last_round?.result,votes:t.last_round?.validator_votes_name,rounds:t.num_of_rounds,execution:t.consensus_data?.leader_receipt?.[0]?.execution_result,to:t.to_address}));
