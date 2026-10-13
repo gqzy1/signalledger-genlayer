@@ -1,8 +1,12 @@
 # SignalLedger
 
-**Read the signal. Record the shift.**
+**Every signal. A traceable record.**
 
 A minimal React product for registering a fixed service scope and source, requesting independent GenLayer interpretation, and reading the resulting service-announcement transition history.
+
+## Signal Desk interface
+
+A graphite observation desk with warm white text, signal green accepted states, amber UNKNOWN observations and red outage signals. Source verification, current state, the revision ledger and transaction evidence have dedicated sections. The latest observation is displayed separately from the retained accepted state; UNKNOWN never implies an operational guarantee. The read-only example needs no wallet. Archived transaction links can be tracked without submitting a new transaction.
 
 ## What you can do
 

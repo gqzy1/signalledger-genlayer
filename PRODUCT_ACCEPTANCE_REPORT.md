@@ -17,3 +17,9 @@ No simulated signing or mock wallet is counted as real wallet E2E. Portal submis
 
 ## Submission packaging
 Repository B contains the entire official Python source, deployment manifest, source provenance, MIT License, walkthrough, deployment metadata, real onchain reports and independent Projects submission URLs. SUBMISSION_PROJECTS.md provides the prepared fields. Final public read-only website verification is complete. Both tracks are READY for manual submission at the minimum sufficient scope, with extension-wallet live connection/write E2E and mobile visual QA explicitly NOT RUN. Historical CHECKPOINT, FAST2_PREFLIGHT and FAST2_EXECUTION_CHECKPOINT files describe their earlier stages; ONCHAIN_REPORT.md and this report describe the final status. No new transactions, redeployment or application logic changes were needed for this verification.
+
+## FAST-UI / Signal Desk
+
+The UI-only redesign preserves client.ts, domain.ts, deployment.json, all archived onchain evidence and the complete official contract source unchanged. It separates latest observation from accepted/retained state, displays actual revision and recorded-check counts, renders the latest ten records as a revision ledger, and presents transaction finality, agreement and execution separately using the existing receipt success rules. Archived transaction buttons only resume read-only tracking. No transaction was submitted for this redesign.
+
+Local verification: 34 existing frontend tests PASS; official source SHA256 verification PASS; TypeScript and Vite production build PASS. Public verification of this UI is recorded after publication. Existing live extension-wallet/write and mobile visual QA limitations remain unchanged until explicitly verified. Projects READY remains the established acceptance conclusion.
