@@ -14,9 +14,12 @@
     "outage": "PASS",
     "recovery": "PASS via approved recheck",
     "insufficientEvidence": "PASS",
-    "frontendExtensionWallet": "NOT RUN",
-    "publicWebsite": "VERIFICATION PENDING",
-    "frontendReadOnly": "VERIFICATION PENDING"
+    "frontendExtensionWallet": "NOT RUN \u2014 no injected provider in cloud browser",
+    "publicWebsite": "PASS",
+    "frontendReadOnly": "PASS",
+    "missingWalletHandling": "PASS \u2014 browser and OKX selectors",
+    "invalidAddressHandling": "PASS",
+    "transactionTracking": "PENDING \u2014 reverify published mixed-receipt fix"
   },
   "transactionCount": 6,
   "transactions": {

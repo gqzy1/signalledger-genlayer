@@ -1,0 +1,17 @@
+{
+  "url": "https://gqzy1.github.io/signalledger-genlayer/?w=1",
+  "httpStatus": 200,
+  "checkedAt": "2026-10-13T06:48:35.437044+00:00",
+  "assets": [
+    {
+      "url": "https://gqzy1.github.io/signalledger-genlayer/assets/index-C0Q_vBa9.js",
+      "status": 200,
+      "bytes": 727351
+    },
+    {
+      "url": "https://gqzy1.github.io/signalledger-genlayer/assets/index-DTfS-sZI.css",
+      "status": 200,
+      "bytes": 4381
+    }
+  ]
+}

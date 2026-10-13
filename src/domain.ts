@@ -23,13 +23,17 @@ export function parseMonitor(raw:unknown):Monitor {
 export function json(value:unknown){return JSON.stringify(value,(_,v)=>typeof v==='bigint'?v.toString():v,2)}
 export function receiptState(tx:unknown):'pending'|'success'|'failed'|'unverified' {
   if(!tx || typeof tx!=='object') return 'pending';
-  const t=tx as {statusName?:string;status?:number|string;resultName?:string;txExecutionResult?:number;txExecutionResultName?:string;consensus_data?:{votes?:Record<string,string>;leader_receipt?:{execution_result?:string}[]}};
+ const t=tx as {statusName?:string;status?:number|string;resultName?:string;result_name?:string;txExecutionResult?:number;txExecutionResultName?:string;consensus_data?:{votes?:Record<string,string>;leader_receipt?:{mode?:string;execution_result?:string}[]}};
   const status=String(t.statusName??t.status??'').toUpperCase();
   if(['UNDETERMINED','CANCELED','VALIDATORS_TIMEOUT','LEADER_TIMEOUT'].includes(status)) return 'failed';
   if(status!=='FINALIZED' && status!=='7') return 'pending';
  const votes=Object.values(t.consensus_data?.votes??{}).map(v=>v.toUpperCase());
-  const agreed=t.resultName==='MAJORITY_AGREE' || (votes.length>=3 && votes.filter(x=>x==='AGREE').length>votes.length/2);
-  const executed=t.txExecutionResult===1 || t.txExecutionResultName==='FINISHED_WITH_RETURN' || t.consensus_data?.leader_receipt?.at(-1)?.execution_result==='SUCCESS';
-  if(t.txExecutionResult===2 || t.txExecutionResultName==='FINISHED_WITH_ERROR' || ['MAJORITY_DISAGREE','FAILURE','TIMEOUT','NO_MAJORITY'].includes(t.resultName??'') || t.consensus_data?.leader_receipt?.at(-1)?.execution_result==='ERROR') return 'failed';
+ const consensus=String(t.resultName??t.result_name??'').toUpperCase();
+ const receipts=t.consensus_data?.leader_receipt??[];
+ // Studio can append a validator error to this array after a successful leader.
+ const leader=receipts.some(r=>r.mode!==undefined)?receipts.filter(r=>r.mode==='leader').at(-1):receipts.at(-1);
+ const agreed=consensus==='MAJORITY_AGREE' || (votes.length>=3 && votes.filter(x=>x==='AGREE').length>votes.length/2);
+ const executed=t.txExecutionResult===1 || t.txExecutionResultName==='FINISHED_WITH_RETURN' || leader?.execution_result==='SUCCESS';
+ if(t.txExecutionResult===2 || t.txExecutionResultName==='FINISHED_WITH_ERROR' || ['MAJORITY_DISAGREE','FAILURE','TIMEOUT','NO_MAJORITY'].includes(consensus) || leader?.execution_result==='ERROR') return 'failed';
   return agreed && executed ? 'success' : 'unverified';
 }
