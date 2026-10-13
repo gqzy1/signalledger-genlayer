@@ -4,7 +4,7 @@ Only Stable Studionet 61999, https://studio.genlayer.com/api. No deployment or w
 
 ## Minimum transaction scope
 
-Five successful transactions are planned: one deployment, one create_monitor and three check calls. Additional failing transactions are not required by this minimum; refusal paths use existing tests unless real execution is necessary. Do not automatically retry a submitted transaction. Recover its original hash first. Stop after two consecutive failures of the same consensus type and investigate without weakening validation.
+The original minimum was five transactions. A sixth was explicitly approved after the first recovery attempt observed an old source: one deployment, one create_monitor and four check calls in total. Additional failing transactions are not required by this minimum; refusal paths use existing tests unless real execution is necessary. Do not automatically retry a submitted transaction. Recover its original hash first. Stop after two consecutive failures of the same consensus type and investigate without weakening validation.
 
 1. Deploy the exact canonical source (SHA256 89d4f8e3ee117a9dbe6acd086f3363645cad34ba84fc83e54a1773d291be7daa), empty constructor. Save address, transaction hash, FINALIZED status, execution result, Explorer link and actual receipt. Independently read deployed code and match the source digest.
 2. Through the frontend create monitor `fast2-eu-api`, scope `SignalLedger Test Service / EU API`, source `https://raw.githubusercontent.com/gqzy1/signal-ledger-primitive/main/evidence/test-announcement.txt`. The source is explicitly SYNTHETIC TEST DATA, not a claim about a real provider. Confirm finalized get_monitor.
@@ -15,6 +15,6 @@ Five successful transactions are planned: one deployment, one create_monitor and
 
 If the bulletin is older than seven days at execution, refresh it before the first check. Every valid source update must be no later than the transaction datetime. Source text is limited to 24,000 characters; exact excerpts are 12–400 characters. Use the fixed scope verbatim and do not change URL between cases.
 
-## Current live status
+## Completed real acceptance
 
-Deployment, monitor creation, real OUTAGE consensus and finalized reads: PASS. Recovery acceptance: FAIL (old source retrieved). UNKNOWN retention, product frontend wallet E2E and public website acceptance: NOT RUN. Four of the five authorized transactions were sent; no additional transaction was sent. See FAST2_EXECUTION_CHECKPOINT.md. A new recovery transaction requires additional explicit approval. Never replace these statuses with PASS based on unit tests or CI. No Portal submission is included.
+Deployment, source verification, monitor creation, outage, approved recovery recheck and UNKNOWN retention: PASS. Exactly six real transactions were sent. The original recovery attempt failed its intended scenario because an old source was observed; its successful transaction and historical record remain archived. See ONCHAIN_REPORT.md. Product wallet and website coverage are recorded independently in PRODUCT_ACCEPTANCE_REPORT.md. No Portal submission occurred.

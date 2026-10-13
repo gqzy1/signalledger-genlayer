@@ -17,7 +17,9 @@ An UNKNOWN observation preserves the previous accepted state. Source update and 
 
 ## Current status
 
-**Deployed on Stable Studionet; live acceptance is PARTIAL.** The canonical contract is `0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247`. Deployment, monitor creation and the outage transition passed. The recovery transaction finalized successfully but retrieved the previous outage source, so recovery acceptance FAILED; the UNKNOWN-retention scenario remains NOT RUN. See [FAST2_EXECUTION_CHECKPOINT.md](FAST2_EXECUTION_CHECKPOINT.md). GitHub Pages and product browser-wallet E2E remain NOT RUN. No complete onchain acceptance is claimed.
+**Deployed and real semantic acceptance complete.** Canonical contract: `0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247`. Six real finalized transactions establish outage, recovery and UNKNOWN retention. The earlier source-lag failure remains archived. See [onchain report](ONCHAIN_REPORT.md) and [product acceptance](PRODUCT_ACCEPTANCE_REPORT.md).
+
+[Open the product](https://gqzy1.github.io/signalledger-genlayer/) · [Verified onchain example, no wallet](https://gqzy1.github.io/signalledger-genlayer/?w=1)
 
 The complete official primitive source lives at `intelligent-contract/contracts/signal_ledger.py`. [Source provenance](intelligent-contract/SOURCE_PROVENANCE.md) and `npm run check:source` verify its SHA256. [Repository A](https://github.com/gqzy1/signal-ledger-primitive) supplies the canonical source and contract tests.
 
@@ -39,7 +41,7 @@ npm run dev
 
 ## Deployment preparation
 
-The manual GitHub Pages workflow is included, but has not been triggered. The canonical address is now in `deployment.json` and Pages is configured for GitHub Actions. After completing live acceptance, run “Publish frontend (manual)”. The production site is a static build; no private keys, paid service or runtime API secret is needed.
+The manual GitHub Pages workflow builds and publishes the static product. Pages is configured for GitHub Actions. The canonical address and actual live acceptance are recorded in `deployment.json`. The production site is a static build; no private keys, paid service or runtime API secret is needed.
 
 Read [DEMO.md](DEMO.md) for the workflow and [LIVE_ACCEPTANCE.md](LIVE_ACCEPTANCE.md) for the minimum real deployment checks. See [CHECKPOINT.md](CHECKPOINT.md) for executed checks and limitations.
 

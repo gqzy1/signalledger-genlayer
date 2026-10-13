@@ -8,6 +8,6 @@
 - Source SHA256: 89d4f8e3ee117a9dbe6acd086f3363645cad34ba84fc83e54a1773d291be7daa
 - Contract address: 0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247
 - Deployment transaction: 0xad010dbb93a50af9674658311f8f100aca36022e596c6149bcd7daa5fc2bb4b8 — FINALIZED / MAJORITY_AGREE / SUCCESS
-- Live consensus: PASS for deployment, creation and outage; recovery transaction succeeded but recovery scenario FAIL (old source). UNKNOWN retention and product frontend wallet E2E: NOT RUN
+- Live consensus: PASS for deployment, creation, outage, approved recovery recheck and UNKNOWN retention. Product extension-wallet E2E: NOT RUN (see product acceptance report).
 
-The deployed source was retrieved from the canonical RPC and its SHA256 matches the complete official source above. Live acceptance is incomplete; see ../FAST2_EXECUTION_CHECKPOINT.md.
+The deployed source was retrieved from the canonical RPC and its SHA256 matches the complete official source above. All three real semantic scenarios passed; see ../ONCHAIN_REPORT.md. The historical four-transaction checkpoint preserves the original source-lag failure.

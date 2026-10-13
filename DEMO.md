@@ -1,15 +1,21 @@
-# Product walkthrough
+# SignalLedger walkthrough
 
-Current state: deployed at `0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247` on Stable Studionet 61999. Monitor `fast2-eu-api` has real finalized records: UNKNOWN -> OUTAGE, then OUTAGE -> OUTAGE. The second observation retrieved the earlier outage source despite a published recovery, so the recovery scenario FAILED. UNKNOWN retention and product wallet E2E remain NOT RUN. The production website has not been published. See FAST2_EXECUTION_CHECKPOINT.md for hashes and evidence.
+Canonical contract: `0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247`, Stable Studionet 61999.
 
-1. Open the app and enter the deployed canonical contract address. “Verify & bind” reads the network, source code and finalized count. Mismatched source prevents binding.
-2. Select Browser wallet or OKX, then connect. The wallet must be on Stable Studionet 61999.
-3. Enter a unique lowercase monitor ID, exact service/component/region and a short public HTTPS announcement URL with explicit update dates. Create the monitor and approve the wallet request.
-4. Wait for finalization, agreement and successful execution. The app then reads finalized monitor state; the initial status is UNKNOWN.
-5. As the owner, select “Verify announcement” and approve. The leader and independent validators retrieve and interpret the source; successful accepted observations appear as a transition or confirmation.
-6. Read the source excerpt, source update time, checked time and digest. Inspect raw receipts and Explorer evidence.
-7. Load the same ID without a wallet for public reads. A non-owner cannot run a check.
+## Public verified example
+Open https://gqzy1.github.io/signalledger-genlayer/?w=1. The app verifies the deployed source and loads monitor `fast2-eu-api` from finalized chain state, without a wallet. View the four real observations: OUTAGE, a repeated old-source OUTAGE, accepted recovery to OPERATIONAL, and UNKNOWN retaining OPERATIONAL. Source bulletins are explicitly synthetic test data. The old-source check is preserved rather than hidden.
 
-If evidence is incomplete, UNKNOWN is recorded and the last accepted state stays visible. If the source fails, changes mid-consensus, contains old/conflicting evidence, or validators disagree, no successful update is claimed.
+Read the accepted update, last checked time, revision, observation signal, exact evidence quote and rendered-source digest. UNKNOWN does not imply fresh normal operation; it records insufficient current scoped evidence while retaining the last accepted state.
 
-Polling ends after forty attempts. Preserve the returned transaction ID and use Resume tracking. Do not blindly resubmit a pending action. A FINALIZED receipt without agreement and successful execution is shown as unverified, not success.
+## Owner workflow
+1. Choose a browser wallet or OKX Wallet on Stable Studionet.
+2. Verify and bind the canonical contract. A source digest mismatch blocks binding.
+3. Enter a unique lowercase ID, fixed service scope and a concise dated public HTTPS source; approve create_monitor.
+4. As the owner, approve Verify announcement. A check requires the current revision and at least 60 seconds since the prior check.
+5. Preserve the returned transaction hash. Resume tracking and inspect the Explorer link instead of blindly resubmitting.
+6. Other users can load the monitor by ID without a wallet. A non-owner cannot check it.
+
+Wallet approvals are required for owner writes. See PRODUCT_ACCEPTANCE_REPORT.md for the exact live browser-wallet coverage; Studio signing and product extension signing are not conflated. Do not perform extra transactions merely to inspect this verified example.
+
+## Evidence
+See ONCHAIN_REPORT.md, evidence-fast2/ONCHAIN_EVIDENCE_INDEX.json and deployment.json. All six transactions were FINALIZED / MAJORITY_AGREE / SUCCESS. No Portal entry has been submitted.
