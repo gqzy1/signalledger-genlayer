@@ -1,0 +1,18 @@
+import {describe,it,expect} from 'vitest';
+import {address,validateMonitor,parseMonitor,receiptState} from '../src/domain';
+describe('input and read boundary',()=>{
+ it('accepts a bounded scope and public source',()=>expect(()=>validateMonitor('payments-eu','Payment API / Europe','https://status.service.com/incidents/123')).not.toThrow());
+ it.each(['http://site.com','https://127.0.0.1','https://localhost','https://site.internal','https://user@site.com','https://site.com?a=b','https://site.com/#x'])('rejects unsafe source %s',url=>expect(()=>validateMonitor('x','Service',url)).toThrow());
+ it('rejects oversized scope and bad ID',()=>{expect(()=>validateMonitor('BAD','Service','https://site.com')).toThrow();expect(()=>validateMonitor('x','s'.repeat(161),'https://site.com')).toThrow()});
+ it.each(['0x'+'0'.repeat(40),'bad','0x123'])('rejects missing address %s',x=>expect(()=>address(x)).toThrow());
+ it('requires valid finalized read schema',()=>{expect(()=>parseMonitor({})).toThrow();expect(()=>parseMonitor('{"state":"FAKE","revision":0}')).toThrow()});
+});
+describe('honest transaction lifecycle',()=>{
+ it('does not treat accepted as finalized success',()=>expect(receiptState({statusName:'ACCEPTED',resultName:'MAJORITY_AGREE',txExecutionResult:1})).toBe('pending'));
+ it('requires consensus AND execution evidence',()=>{expect(receiptState({statusName:'FINALIZED'})).toBe('unverified');expect(receiptState({statusName:'FINALIZED',resultName:'MAJORITY_AGREE'})).toBe('unverified');expect(receiptState({statusName:'FINALIZED',txExecutionResult:1})).toBe('unverified')});
+ it('accepts finalized SDK result with execution proof',()=>expect(receiptState({statusName:'FINALIZED',resultName:'MAJORITY_AGREE',txExecutionResult:1})).toBe('success'));
+ it('supports stable Studio vote and receipt proof',()=>expect(receiptState({statusName:'FINALIZED',consensus_data:{votes:{a:'AGREE',b:'AGREE',c:'AGREE',d:'DISAGREE',e:'DISAGREE'},leader_receipt:[{execution_result:'SUCCESS'}]}})).toBe('success'));
+ it.each(['UNDETERMINED','CANCELED','LEADER_TIMEOUT','VALIDATORS_TIMEOUT'])('fails terminal %s',statusName=>expect(receiptState({statusName})).toBe('failed'));
+ it('does not turn finalized execution error into PASS',()=>expect(receiptState({statusName:'FINALIZED',resultName:'MAJORITY_AGREE',txExecutionResult:2})).toBe('failed'));
+ it('does not accept a minority',()=>expect(receiptState({statusName:'FINALIZED',consensus_data:{votes:{a:'AGREE',b:'DISAGREE',c:'DISAGREE'},leader_receipt:[{execution_result:'SUCCESS'}]}})).toBe('unverified'));
+});

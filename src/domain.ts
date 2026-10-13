@@ -1,0 +1,35 @@
+export const CHAIN_ID = 61999;
+export const RPC = 'https://studio.genlayer.com/api';
+export const STATES = ['UNKNOWN','OPERATIONAL','DEGRADED','OUTAGE','MAINTENANCE'] as const;
+export type State = typeof STATES[number];
+export interface Monitor {id:string;owner:string;scope:string;url:string;state:State;revision:number;last_event:string;checks:number;last_checked:string}
+export interface RecordItem {signal:State;updated_at:string;quote:string;source_sha256:string;before:State;after:State;disposition:string;revision:number;checked_at:string;url:string;scope:string}
+export function address(value:string): `0x${string}` {
+  if(!/^0x[0-9a-fA-F]{40}$/.test(value) || /^0x0{40}$/.test(value)) throw new Error('Enter a nonzero contract address.');
+  return value as `0x${string}`;
+}
+export function validateMonitor(id:string,scope:string,url:string){
+  if(!/^[a-z0-9][a-z0-9_-]{0,47}$/.test(id)) throw new Error('Use a lowercase ID, up to 48 letters, numbers, _ or -.');
+  if(!scope.trim() || scope.length>160 || /[\x00-\x1f]/.test(scope)) throw new Error('Specify the exact service, component and region (up to 160 characters).');
+  let parsed: URL; try {parsed=new URL(url)} catch {throw new Error('Enter a public HTTPS source URL.')}
+  if(parsed.protocol!=='https:' || parsed.username || parsed.password || parsed.port || parsed.search || parsed.hash || url.length>512 || !/^https:\/\/[a-z0-9.-]+(?:\/[^\s?#\\]*)?$/.test(url) || !/\.[a-z]{2,24}$/.test(parsed.hostname) || /(^|\.)(localhost|local|internal|test|example|invalid|home|lan)$/.test(parsed.hostname)) throw new Error('Use public HTTPS, without credentials, ports, query or fragment.');
+}
+export function parseMonitor(raw:unknown):Monitor {
+  if(typeof raw!=='string') throw new Error('Unexpected contract response.');
+  const data=JSON.parse(raw) as Monitor;
+  if(!STATES.includes(data.state) || !Number.isInteger(data.revision) || data.revision<0 || typeof data.owner!=='string' || typeof data.url!=='string' || typeof data.scope!=='string') throw new Error('Invalid monitor response.');
+  return data;
+}
+export function json(value:unknown){return JSON.stringify(value,(_,v)=>typeof v==='bigint'?v.toString():v,2)}
+export function receiptState(tx:unknown):'pending'|'success'|'failed'|'unverified' {
+  if(!tx || typeof tx!=='object') return 'pending';
+  const t=tx as {statusName?:string;status?:number|string;resultName?:string;txExecutionResult?:number;txExecutionResultName?:string;consensus_data?:{votes?:Record<string,string>;leader_receipt?:{execution_result?:string}[]}};
+  const status=String(t.statusName??t.status??'').toUpperCase();
+  if(['UNDETERMINED','CANCELED','VALIDATORS_TIMEOUT','LEADER_TIMEOUT'].includes(status)) return 'failed';
+  if(status!=='FINALIZED' && status!=='7') return 'pending';
+  const votes=Object.values(t.consensus_data?.votes??{});
+  const agreed=t.resultName==='MAJORITY_AGREE' || (votes.length>=3 && votes.filter(x=>x==='AGREE').length>votes.length/2);
+  const executed=t.txExecutionResult===1 || t.txExecutionResultName==='FINISHED_WITH_RETURN' || t.consensus_data?.leader_receipt?.at(-1)?.execution_result==='SUCCESS';
+  if(t.txExecutionResult===2 || t.txExecutionResultName==='FINISHED_WITH_ERROR' || ['MAJORITY_DISAGREE','FAILURE','TIMEOUT','NO_MAJORITY'].includes(t.resultName??'') || t.consensus_data?.leader_receipt?.at(-1)?.execution_result==='ERROR') return 'failed';
+  return agreed && executed ? 'success' : 'unverified';
+}

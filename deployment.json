@@ -1,0 +1,9 @@
+{
+  "network": "Stable Studionet",
+  "chainId": 61999,
+  "rpc": "https://studio.genlayer.com/api",
+  "contractAddress": null,
+  "sourceSha256": "89d4f8e3ee117a9dbe6acd086f3363645cad34ba84fc83e54a1773d291be7daa",
+  "liveValidation": "NOT RUN",
+  "deploymentStatus": "NOT DEPLOYED"
+}
