@@ -4,7 +4,7 @@
   "rpc": "https://studio.genlayer.com/api",
   "contractAddress": "0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247",
   "sourceSha256": "89d4f8e3ee117a9dbe6acd086f3363645cad34ba84fc83e54a1773d291be7daa",
-  "liveValidation": "PASS \u2014 three real semantic scenarios",
+  "liveValidation": "PASS — three real semantic scenarios",
   "deploymentStatus": "DEPLOYED",
   "deploymentTransaction": "0xad010dbb93a50af9674658311f8f100aca36022e596c6149bcd7daa5fc2bb4b8",
   "monitorId": "fast2-eu-api",
@@ -14,12 +14,14 @@
     "outage": "PASS",
     "recovery": "PASS via approved recheck",
     "insufficientEvidence": "PASS",
-    "frontendExtensionWallet": "NOT RUN \u2014 no injected provider in cloud browser",
+    "frontendExtensionWallet": "NOT RUN — no injected provider in cloud browser",
     "publicWebsite": "PASS",
     "frontendReadOnly": "PASS",
-    "missingWalletHandling": "PASS \u2014 browser and OKX selectors",
+    "missingWalletHandling": "PASS — browser and OKX selectors",
     "invalidAddressHandling": "PASS",
-    "transactionTracking": "PENDING \u2014 reverify published mixed-receipt fix"
+    "transactionTracking": "PASS — published browser recheck of actual mixed leader/validator receipt",
+    "desktopVisualQA": "PASS",
+    "mobileVisualQA": "NOT RUN"
   },
   "transactionCount": 6,
   "transactions": {
