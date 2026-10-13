@@ -1,14 +1,20 @@
-# Minimum live acceptance — approval required
+# Minimum live acceptance — FAST-2
 
-All steps below are NOT RUN at FAST-1. Use only Stable Studionet 61999 and faucet funds. No private key or seed phrase is needed; deployment and writes require user-approved browser-wallet actions.
+Only Stable Studionet 61999, https://studio.genlayer.com/api. No deployment or write may be sent before explicit user approval. Use browser signing; never request or export a private key or seed phrase.
 
-1. Deploy the exact official source with no constructor arguments in Stable Studio. Archive source SHA256, contract address, deployment transaction, successful finalized receipt and schema. Bind the same address in the frontend and verify the source digest.
-2. Create a monitor through the frontend for a clearly labeled, controlled public test announcement with today's explicit UTC update time. Record finalized receipt and get_monitor. These are acceptance fixtures, not claims about a real service.
-3. Publish an outage announcement at the fixed fixture URL, check it through the frontend, and verify UNKNOWN → OUTAGE. Publish a newer recovery at the same URL, wait at least 60 seconds and check OUTAGE → OPERATIONAL. Save actual hashes, consensus results, validator evidence and finalized records.
-4. Replace the fixture with out-of-scope/future-maintenance or ambiguous evidence, then check that UNKNOWN is recorded and OPERATIONAL is preserved. Verify one non-owner check rejection and an older/same-time conflicting update rejection. Each intentionally failing transaction requires approval too.
-5. Test one genuine dated public service announcement, without claiming the selected source is certified official. Validate the actual scoped judgment. Confirm read-only reload in another browser session, wallet rejection, account change and pending-transaction recovery.
-6. Archive evidence, set canonical contractAddress and actual validation status in deployment.json, rebuild, and publish the static frontend with the manual Pages workflow. Do not submit either Portal track until both have genuine reproducible chain evidence.
+## Minimum transaction scope
 
-The outage, recovery and UNKNOWN fixture checks can reuse one monitor and source URL. They are a compact real consensus acceptance sequence. GitHub source commits and unit tests are not substitutes for real LLM/validator behavior.
+Five successful transactions are planned: one deployment, one create_monitor and three check calls. Additional failing transactions are not required by this minimum; refusal paths use existing tests unless real execution is necessary. Do not automatically retry a submitted transaction. Recover its original hash first. Stop after two consecutive failures of the same consensus type and investigate without weakening validation.
 
-No executable deployment or transaction script is provided or run by the preflight check.
+1. Deploy the exact canonical source (SHA256 89d4f8e3ee117a9dbe6acd086f3363645cad34ba84fc83e54a1773d291be7daa), empty constructor. Save address, transaction hash, FINALIZED status, execution result, Explorer link and actual receipt. Independently read deployed code and match the source digest.
+2. Through the frontend create monitor `fast2-eu-api`, scope `SignalLedger Test Service / EU API`, source `https://raw.githubusercontent.com/gqzy1/signal-ledger-primitive/main/evidence/test-announcement.txt`. The source is explicitly SYNTHETIC TEST DATA, not a claim about a real provider. Confirm finalized get_monitor.
+3. Keep the outage bulletin unchanged throughout consensus. Call check with revision 0; verify actual model/validator evidence, MAJORITY_AGREE, successful FINALIZED execution and UNKNOWN -> OUTAGE in finalized reads.
+4. After the previous transaction is finalized, update the SAME URL with a strictly newer UTC timestamp and explicit full EU API recovery. Verify publication; wait at least 60 seconds after last_checked; call check with revision 1. Preserve the source during execution. Verify OUTAGE -> OPERATIONAL and the actual consensus and finalized record.
+5. After finality, publish an explicitly dated notice only about an unrelated US dashboard, with no current EU API evidence. Wait at least 60 seconds after last_checked; call check with revision 2. Verify signal UNKNOWN, empty updated_at/quote, INSUFFICIENT_EVIDENCE, and accepted state remains OPERATIONAL. Save actual consensus and finalized reads.
+6. Exercise wallet connection, frontend create/check, read-only reload, source verification and submitted-hash recovery. Clearly separate real browser checks from unit-only wallet rejection/account-change coverage. Archive raw receipts, source versions and final reads. Only then populate deployment.json and publish GitHub Pages. Confirm the public site reads the real monitor without a wallet.
+
+If the bulletin is older than seven days at execution, refresh it before the first check. Every valid source update must be no later than the transaction datetime. Source text is limited to 24,000 characters; exact excerpts are 12–400 characters. Use the fixed scope verbatim and do not change URL between cases.
+
+## Current live status
+
+Deployment, real AI consensus, wallet E2E, deployed reads and public website acceptance: NOT RUN. Approval and a usable browser signer are still required. The preflight performs reads only. Never replace these statuses with PASS based on unit tests or CI. No Portal submission is included.
