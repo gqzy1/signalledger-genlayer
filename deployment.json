@@ -14,7 +14,7 @@
     "outage": "PASS",
     "recovery": "PASS via approved recheck",
     "insufficientEvidence": "PASS",
-    "frontendExtensionWallet": "NOT RUN — no injected provider in cloud browser",
+    "frontendExtensionWallet": "NOT RUN",
     "publicWebsite": "PASS",
     "frontendReadOnly": "PASS",
     "missingWalletHandling": "PASS — browser and OKX selectors",

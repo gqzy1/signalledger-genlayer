@@ -47,7 +47,7 @@ npm run dev
 
 The manual GitHub Pages workflow builds and publishes the static product. Pages is configured for GitHub Actions. The canonical address and actual live acceptance are recorded in `deployment.json`. The production site is a static build; no private keys, paid service or runtime API secret is needed.
 
-Read [DEMO.md](DEMO.md) for the workflow and [LIVE_ACCEPTANCE.md](LIVE_ACCEPTANCE.md) for the minimum real deployment checks. See [CHECKPOINT.md](CHECKPOINT.md) for executed checks and limitations.
+Read [DEMO.md](DEMO.md) for the product walkthrough, [ONCHAIN_REPORT.md](ONCHAIN_REPORT.md) for finalized consensus evidence, and [PRODUCT_ACCEPTANCE_REPORT.md](PRODUCT_ACCEPTANCE_REPORT.md) for completed product verification and limitations. The original [test plan](LIVE_ACCEPTANCE.md) and [initial checkpoint](CHECKPOINT.md) remain available as historical documentation.
 
 ## Sustainable use
 

@@ -4,7 +4,7 @@ Canonical repository: https://github.com/gqzy1/signal-ledger-primitive
 
 Canonical path: `contracts/signal_ledger.py`.
 
-Included full source: `contracts/signal_ledger.py`, byte-for-byte identical; also verified against the actual deployed source in FAST-2.
+Included full source: `contracts/signal_ledger.py`, byte-for-byte identical; also verified against the deployed source on Stable Studionet.
 
 SHA256: `89d4f8e3ee117a9dbe6acd086f3363645cad34ba84fc83e54a1773d291be7daa`.
 
