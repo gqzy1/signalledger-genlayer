@@ -6,7 +6,7 @@ Canonical candidate path: `contracts/signal_ledger.py`.
 
 The full candidate source in this repository is copied byte-for-byte from the A repository branch prepared for the Steward remediation.
 
-Candidate SHA256: `7462e8ade28735235649b3953dfb5e6d2164520a760a3791d22e1992a9adc952`.
+Candidate SHA256: `c24e2801e3e7266a2858596a248b3fd99801dce993e1398c3bd6840f90321d54`.
 
 **Deployment status: NOT DEPLOYED.** The previous deployed contract remains `0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247` with the previous source SHA256 `89d4f8e3ee117a9dbe6acd086f3363645cad34ba84fc83e54a1773d291be7daa`. That deployment predates owner-scoped monitor IDs and per-owner quotas and must not be represented as satisfying the new review request.
 
