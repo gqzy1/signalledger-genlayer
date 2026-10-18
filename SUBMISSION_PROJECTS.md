@@ -1,3 +1,5 @@
+> **Draft status: NOT READY FOR RESUBMISSION.** The contract security fix is prepared but not deployed. Refresh the live contract address, source hash, public example and transaction evidence after the new deployment before submitting this Projects entry.
+
 # Projects — SignalLedger
 
 ## Name and description

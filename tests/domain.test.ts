@@ -1,7 +1,9 @@
 import {describe,it,expect} from 'vitest';
-import {address,validateMonitor,parseMonitor,receiptState} from '../src/domain';
+import {address,validateMonitor,parseMonitor,receiptState,monitorReference} from '../src/domain';
 import capturedReceipt from './fixtures/studio-finalized-insufficient.json';
 describe('input and read boundary',()=>{
+ it('normalizes owner-scoped monitor references',()=>expect(monitorReference('0x'+'A'.repeat(40),'payments-eu')).toBe('0x'+'a'.repeat(40)+'::payments-eu'));
+ it('rejects invalid monitor IDs in public references',()=>expect(()=>monitorReference('0x'+'a'.repeat(40),'Bad ID')).toThrow());
  it('accepts a bounded scope and public source',()=>expect(()=>validateMonitor('payments-eu','Payment API / Europe','https://status.service.com/incidents/123')).not.toThrow());
  it.each(['http://site.com','https://127.0.0.1','https://localhost','https://site.internal','https://user@site.com','https://site.com?a=b','https://site.com/#x'])('rejects unsafe source %s',url=>expect(()=>validateMonitor('x','Service',url)).toThrow());
  it('rejects oversized scope and bad ID',()=>{expect(()=>validateMonitor('BAD','Service','https://site.com')).toThrow();expect(()=>validateMonitor('x','s'.repeat(161),'https://site.com')).toThrow()});

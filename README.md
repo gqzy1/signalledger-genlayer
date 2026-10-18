@@ -1,3 +1,5 @@
+> **Steward remediation pending deployment.** This branch contains a candidate with owner-scoped monitor IDs and an eight-monitor per-owner quota. The existing public deployment still runs the previous source. The app is intentionally disabled until a new matching deployment is verified.
+
 # SignalLedger
 
 **Every signal. A traceable record.**
@@ -13,7 +15,7 @@ A graphite observation desk with warm white text, signal green accepted states, 
 - Connect an EIP-1193 browser wallet or OKX Wallet to Stable Studionet.
 - Bind a contract only after the deployed source SHA256 matches the official included source.
 - Create an immutable service/component/region monitor and source URL.
-- Load any monitor by ID without connecting a wallet.
+- Load a public monitor by owner-qualified reference (`owner-address::monitor-id`) without a wallet, or load your own monitor by ID when connected.
 - As its owner, verify the latest announcement and inspect the latest ten chain records.
 - Track finality, consensus evidence and execution; inspect raw receipts and resume a submitted transaction without resubmitting it.
 
@@ -53,6 +55,6 @@ Read [DEMO.md](DEMO.md) for the product walkthrough, [ONCHAIN_REPORT.md](ONCHAIN
 
 Use manual checks on concise, explicitly dated public announcements. Faucet GEN funds Studio transactions; available faucet funds and network/model quotas are not guaranteed indefinitely. No recurring server costs or paid APIs are required by this implementation. Wallet approvals are required for each onchain action. Local storage keeps only the last transaction ID.
 
-Sources are owner selected and are not certified official. The contract has bounded capacities (128 monitors, 256 records per monitor), rejects source drift and stale evidence, and may fail to reach consensus on ambiguous pages. A new monitor continues future checks at capacity while prior history remains readable.
+Sources are owner selected and are not certified official. The candidate limits each owner to eight monitors with owner-scoped IDs, plus 256 records per monitor. It removes the shared 128-monitor ceiling. Per-address quotas isolate ordinary accounts but do not fully prevent Sybil activity across multiple addresses. The candidate is not deployed yet.
 
 MIT licensed. All contract source, frontend code and build configuration needed for this product are included.

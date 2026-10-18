@@ -1,3 +1,5 @@
+> **Status note:** The PASS results below describe the previous deployed version. The owner-scoped remediation candidate is **NOT DEPLOYED** and has not yet passed live chain acceptance. Do not cite this report as proof of the new Steward requirement until a new deployment and matching evidence are recorded.
+
 # SignalLedger product acceptance
 
 ## Onchain primitive
