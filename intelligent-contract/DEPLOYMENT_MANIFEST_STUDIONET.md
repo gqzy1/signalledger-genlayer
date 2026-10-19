@@ -1,3 +1,5 @@
+> **Historical deployment manifest — pre-Steward remediation.** The address and hash below describe the original deployed source, not the security candidate. Do not use this manifest as proof that the requested owner-scoped quota fix is deployed until a new deployment is verified.
+
 # Stable Studionet deployment manifest
 
 - Chain ID: 61999

@@ -36,5 +36,12 @@
     "monitorId": "fast2-eu-api",
     "query": "?w=1",
     "syntheticSource": true
+  },
+  "monitorOwner": "0xf38Fd10816b18FfAc55b4c523cE40D2DB313fc33",
+  "candidateRemediation": {
+    "status": "PENDING_DEPLOYMENT",
+    "sourceSha256": "c24e2801e3e7266a2858596a248b3fd99801dce993e1398c3bd6840f90321d54",
+    "maxMonitorsPerOwner": 8,
+    "sharedGlobalMonitorCap": null
   }
 }

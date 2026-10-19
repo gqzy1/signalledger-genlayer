@@ -8,6 +8,11 @@ export function address(value:string): `0x${string}` {
   if(!/^0x[0-9a-fA-F]{40}$/.test(value) || /^0x0{40}$/.test(value)) throw new Error('Enter a nonzero contract address.');
   return value as `0x${string}`;
 }
+export function monitorReference(owner:string,id:string):string {
+  const normalized=address(owner).toLowerCase();
+  if(!/^[a-z0-9][a-z0-9_-]{0,47}$/.test(id)) throw new Error('Enter a valid lowercase monitor ID.');
+  return `${normalized}::${id}`;
+}
 export function validateMonitor(id:string,scope:string,url:string){
   if(!/^[a-z0-9][a-z0-9_-]{0,47}$/.test(id)) throw new Error('Use a lowercase ID, up to 48 letters, numbers, _ or -.');
   if(!scope.trim() || scope.length>160 || /[\x00-\x1f]/.test(scope)) throw new Error('Specify the exact service, component and region (up to 160 characters).');

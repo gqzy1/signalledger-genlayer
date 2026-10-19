@@ -1,3 +1,5 @@
+> **Historical walkthrough.** The public example below refers to the previous deployed source. The owner-scoped candidate is not yet deployed, so this walkthrough is not evidence of remediation until the contract and site are updated.
+
 # SignalLedger walkthrough
 
 Canonical contract: `0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247`, Stable Studionet 61999.
@@ -13,7 +15,7 @@ Read the accepted update, last checked time, revision, observation signal, exact
 3. Enter a unique lowercase ID, fixed service scope and a concise dated public HTTPS source; approve create_monitor.
 4. As the owner, approve Verify announcement. A check requires the current revision and at least 60 seconds since the prior check.
 5. Preserve the returned transaction hash. Resume tracking and inspect the Explorer link instead of blindly resubmitting.
-6. Other users can load the monitor by ID without a wallet. A non-owner cannot check it.
+6. Public reads use `owner-address::monitor-id`; a connected owner can load their own monitor by ID. A non-owner cannot check it.
 
 Wallet approvals are required for owner writes. See PRODUCT_ACCEPTANCE_REPORT.md for the exact live browser-wallet coverage; Studio signing and product extension signing are not conflated. Do not perform extra transactions merely to inspect this verified example.
 
