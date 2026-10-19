@@ -1,8 +1,12 @@
 # FAST-4 release preparation and integration route
 
-Status updated by FAST-6: PREPARATION ONLY. Source identity is VERIFIED (manual); no PR merge, Pages publication, Portal submission or blockchain write. Cloud access and public frontend acceptance remain unresolved.
+Current reconciliation update: all seven PRs are merged and Pages #4 published the integrated main; public read-only acceptance was completed by the user. Source identity is VERIFIED (manual), and this request authorizes final metadata/build/publication reconciliation. Historical cloud restrictions are not independently shown generally resolved. Portal and all new chain writes remain excluded.
 
-## Preserved candidate graph
+Pages [#4](https://github.com/gqzy1/signalledger-genlayer/actions/runs/39214181853) successfully published `3edf396b00cbc5025b222ab8b6708db43792baca`. The user completed public source binding and monitor reads: OPERATIONAL / revision 1 / checks 1, history UNKNOWN → OPERATIONAL, record digest `3493caca77d291c3efd5e98c1e5f8687d5a32f6d03f19e302e2b77c52d1887ba`. This is user-reported public acceptance, not a new cloud RPC capture. The current production commit/run/bundle record is [release.json](https://gqzy1.github.io/signalledger-genlayer/release.json); deployment.json retains the explicitly dated pre-reconciliation snapshot rather than predicting a future run.
+
+The planning sections below preserve FAST-4/FAST-6 conditions and branch relationships at those historical times. Their OPEN/DRAFT, pending-publication and later-authorization wording is not the current repository/release state.
+
+## Historical preserved candidate graph
 
 - A #2: main -> security/owner-scoped-monitors-20261019; head 65da22cdbf3faf46bd104a5ce2e3d9fa4f93c873.
 - B #2: main -> security/owner-scoped-monitors-20261019; head a6d103828c2cb8140a1b24a6377fb8971b45fd9e.
@@ -11,7 +15,7 @@ Status updated by FAST-6: PREPARATION ONLY. Source identity is VERIFIED (manual)
 
 The stacked relationship is intentional. It is an integration prerequisite, not a reason to retarget #3 directly to main and silently include contract changes. B #3 remains eight changed files against its security base. A/B #2 and B #3 remain OPEN/DRAFT.
 
-## Recommended later integration (requires separate merge/release authorization)
+## Historical integration plan (completed; do not repeat merges)
 
 1. Review A #2 and integrate the canonical candidate into A main, preserving canonical source bytes.
 2. Review and integrate B #2 into B main; recheck A/B byte equality. Contract source copy integration is explicit here, never hidden inside the frontend PR.
@@ -20,7 +24,7 @@ The stacked relationship is intentional. It is an integration prerequisite, not 
 5. The source identity gate is already VERIFIED through the user-performed local Chrome comparison plus A/B byte identity, SHA256 c24e2801e3e7266a2858596a248b3fd99801dce993e1398c3bd6840f90321d54. See intelligent-contract/SOURCE_PROVENANCE.md. Do not retry the restricted RPC or repeat passed tests to restate that result. Configuration/status fields remain unchanged by FAST-6 and require separate authorization to synchronize.
 6. Under explicit publication authorization, publish the integrated frontend. A new Pages success is release evidence, not live monitor acceptance. Perform one targeted public read-only acceptance: actual request target, owner-qualified reference, OPERATIONAL/revision/checks and record 1. Distinguish static HTTP success, RPC errors and UI rendering. Record actual observed values rather than forcing the baseline if state has changed.
 
-## Evidence boundaries
+## Historical FAST-4/FAST-6 evidence boundaries
 
 New contract 0x6022e1Dba86A150e420bd4f027c6C2eD4a5487b4 is DEPLOYED_USER_REPORTED. Source identity is VERIFIED (MANUAL_LOCAL_CHROME) for the frozen candidates; cloud independent retrieval remains blocked, and unchanged deployment.json retains earlier pending metadata. The public site remains the October 13 historical release for 0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247. The October 19 final-review HTTP 200 bundle evidence does not verify any RPC response or new monitor UI.
 

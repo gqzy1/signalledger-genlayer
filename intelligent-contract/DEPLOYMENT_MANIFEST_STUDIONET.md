@@ -11,9 +11,11 @@
 - Deployment transaction: not supplied; no new hash is asserted.
 - Owner: `0xEB56F245EFEceD0899b7e23697FeE512a39DBdCc`; monitor: `cf-peering-20261018`.
 - User-confirmed Studio reads: count 1, owner count 1, OPERATIONAL, revision 1, checks 1; record 1 returned successfully.
-- New public frontend: not published; live frontend read-only acceptance pending.
+- Public frontend: published owner-scoped version; source binding and OPERATIONAL / revision 1 / checks 1 with UNKNOWN → OPERATIONAL history were user-confirmed.
+- Revision 1 evidence digest: `3493caca77d291c3efd5e98c1e5f8687d5a32f6d03f19e302e2b77c52d1887ba` (announcement record digest, distinct from contract-source SHA256).
+- Last confirmed release before reconciliation: [3edf396b00cbc5025b222ab8b6708db43792baca](https://github.com/gqzy1/signalledger-genlayer/actions/runs/39214181853), Pages #4 build/deploy success. Current release commit/run/bundle: [release.json](https://gqzy1.github.io/signalledger-genlayer/release.json).
 
-These statuses are separate. FAST-6 only synchronizes Markdown; deployment.json is unchanged and still has prior pending metadata. Official RPC 403/1010 has no demonstrated resolution. No fresh Studio tests, RPC reads, integration or publication occur here. See [source provenance](SOURCE_PROVENANCE.md) for byte equality and verification limits.
+These statuses are separate. All seven PRs are merged; final reconciliation synchronizes deployment.json under the current authorization. The local Chrome source comparison and public browser acceptance are user evidence; they do not prove general recovery from historical official RPC/Explorer 403/1010. The final production release is accepted only after its actual workflow and targeted read-only browser check. See [source provenance](SOURCE_PROVENANCE.md).
 
 ## Historical deployment — original evidence retained
 
