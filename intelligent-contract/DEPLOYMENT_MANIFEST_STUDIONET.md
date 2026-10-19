@@ -1,6 +1,24 @@
-> **Historical deployment manifest — pre-Steward remediation.** The address and hash below describe the original deployed source, not the security candidate. Do not use this manifest as proof that the requested owner-scoped quota fix is deployed until a new deployment is verified.
-
 # Stable Studionet deployment manifest
+
+## Current deployment reported by the user
+
+- Network: Stable GenLayer Studionet; Chain ID: 61999.
+- Official RPC: https://studio.genlayer.com/api.
+- Contract: `0x6022e1Dba86A150e420bd4f027c6C2eD4a5487b4`.
+- Deployment status: `DEPLOYED_USER_REPORTED`.
+- Independent deployed-source status: `SOURCE_VERIFICATION_PENDING`.
+- Expected candidate SHA256: `c24e2801e3e7266a2858596a248b3fd99801dce993e1398c3bd6840f90321d54` (repository bytes only).
+- Deployment transaction: not supplied; no new hash is asserted.
+- Owner: `0xEB56F245EFEceD0899b7e23697FeE512a39DBdCc`; monitor: `cf-peering-20261018`.
+- User-confirmed Studio reads: count 1, owner count 1, OPERATIONAL, revision 1, checks 1; record 1 returned successfully.
+- New public frontend: not published; live frontend read-only acceptance pending.
+
+These statuses are separate. FAST-4 does not perform fresh Studio tests or RPC reads. See [source provenance](SOURCE_PROVENANCE.md) for byte equality and verification limits.
+
+## Historical deployment — original evidence retained
+
+The following archived manifest, transaction and successful source retrieval apply only to `0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247`. They do not establish the new deployment's source hash or new frontend acceptance.
+
 
 - Chain ID: 61999
 - RPC: https://studio.genlayer.com/api

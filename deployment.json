@@ -4,7 +4,7 @@
   "rpc": "https://studio.genlayer.com/api",
   "contractAddress": "0x6022e1Dba86A150e420bd4f027c6C2eD4a5487b4",
   "sourceSha256": "c24e2801e3e7266a2858596a248b3fd99801dce993e1398c3bd6840f90321d54",
-  "sourceVerification": "Expected repository source; the browser must verify the deployed bytes before binding.",
+  "sourceVerification": "Expected candidate repository SHA256 only. Independent deployed-source bytes/hash capture is pending; browser runtime verification remains mandatory.",
   "deploymentStatus": "DEPLOYED_USER_REPORTED",
   "monitorOwner": "0xEB56F245EFEceD0899b7e23697FeE512a39DBdCc",
   "monitorId": "cf-peering-20261018",
@@ -71,5 +71,16 @@
       "syntheticSource": true
     },
     "monitorOwner": "0xf38Fd10816b18FfAc55b4c523cE40D2DB313fc33"
+  },
+  "sourceVerificationStatus": "SOURCE_VERIFICATION_PENDING",
+  "publishedWebsite": {
+    "url": "https://gqzy1.github.io/signalledger-genlayer/",
+    "status": "HISTORICAL_RELEASE_NEW_FRONTEND_NOT_PUBLISHED",
+    "contractAddress": "0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247",
+    "applicationCommit": "46adcd5e79f335fe4a1a213fd806ec8d10c88014",
+    "pagesRun": "https://github.com/gqzy1/signalledger-genlayer/actions/runs/38383958340",
+    "bundle": "assets/index-h-nLNUaO.js",
+    "bundleSha256": "554fd4db62eeda09ef404eedc9a67f0da25ac68c43150372e3938e3317797798",
+    "evidence": "Prior final-review static GET: HTML and JS HTTP 200 on 2026-10-19; JS contains historical address and not new address. Not a new-release or live RPC acceptance."
   }
 }

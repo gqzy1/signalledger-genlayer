@@ -1,4 +1,4 @@
-> **Steward remediation pending deployment.** This branch contains a candidate with owner-scoped monitor IDs and an eight-monitor per-owner quota. The existing public deployment still runs the previous source. The app is intentionally disabled until a new matching deployment is verified.
+> **Release preparation, not a new release.** The owner-scoped deployment is user-confirmed; independent deployed-source verification is pending. The public website still serves the historical contract. See the three statuses below.
 
 # SignalLedger
 
@@ -23,9 +23,15 @@ An UNKNOWN observation preserves the previous accepted state. Source update and 
 
 ## Current status
 
-**Deployed and real semantic acceptance complete.** Canonical contract: `0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247`. Six real finalized transactions establish outage, recovery and UNKNOWN retention. The earlier source-lag failure remains archived. See [onchain report](ONCHAIN_REPORT.md) and [product acceptance](PRODUCT_ACCEPTANCE_REPORT.md).
+| Dimension | Current status |
+|---|---|
+| New deployment | `DEPLOYED_USER_REPORTED`: `0x6022e1Dba86A150e420bd4f027c6C2eD4a5487b4` on Stable Studionet 61999. |
+| Independent source verification | `SOURCE_VERIFICATION_PENDING`; expected candidate SHA256 `c24e2801e3e7266a2858596a248b3fd99801dce993e1398c3bd6840f90321d54`. |
+| Published website | Historical release using `0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247`; new frontend not published or accepted. |
 
-[Open the product](https://gqzy1.github.io/signalledger-genlayer/) · [Verified onchain example, no wallet](https://gqzy1.github.io/signalledger-genlayer/?w=1)
+The user confirmed Studio count 1, owner count 1, monitor `cf-peering-20261018` under owner `0xEB56F245EFEceD0899b7e23697FeE512a39DBdCc`, OPERATIONAL / revision 1 / checks 1, and successful record 1. This is user-confirmed evidence. No new deployment hash is asserted. Six original transactions and historical outage/recovery/UNKNOWN acceptance remain attached only to the old deployment. See [source provenance](intelligent-contract/SOURCE_PROVENANCE.md) and [product acceptance](PRODUCT_ACCEPTANCE_REPORT.md).
+
+[Open the product](https://gqzy1.github.io/signalledger-genlayer/) · [Published historical example, no wallet](https://gqzy1.github.io/signalledger-genlayer/?w=1)
 
 The complete official primitive source lives at `intelligent-contract/contracts/signal_ledger.py`. [Source provenance](intelligent-contract/SOURCE_PROVENANCE.md) and `npm run check:source` verify its SHA256. [Repository A](https://github.com/gqzy1/signal-ledger-primitive) supplies the canonical source and contract tests.
 
@@ -33,7 +39,7 @@ Network is fixed to **Stable Studionet, 61999, https://studio.genlayer.com/api**
 
 ## Run
 
-Node 22+:
+Node 22 (FAST-4 reproduction: Node 22.23.3 / npm 10.9.9):
 
 ```bash
 npm ci
@@ -47,7 +53,7 @@ npm run dev
 
 ## Deployment preparation
 
-The manual GitHub Pages workflow builds and publishes the static product. Pages is configured for GitHub Actions. The canonical address and actual live acceptance are recorded in `deployment.json`. The production site is a static build; no private keys, paid service or runtime API secret is needed.
+The manual GitHub Pages workflow builds and publishes the static product. Pages is configured for GitHub Actions. `deployment.json` separates the configured new address, expected source hash, user-confirmed baseline and published historical release. Repository consistency checks do not establish deployed-source equality. No FAST-4 Pages publication is authorized. The production site is a static build; no private keys, paid service or runtime API secret is needed.
 
 Read [DEMO.md](DEMO.md) for the product walkthrough, [ONCHAIN_REPORT.md](ONCHAIN_REPORT.md) for finalized consensus evidence, and [PRODUCT_ACCEPTANCE_REPORT.md](PRODUCT_ACCEPTANCE_REPORT.md) for completed product verification and limitations. The original [test plan](LIVE_ACCEPTANCE.md) and [initial checkpoint](CHECKPOINT.md) remain available as historical documentation.
 
@@ -55,6 +61,6 @@ Read [DEMO.md](DEMO.md) for the product walkthrough, [ONCHAIN_REPORT.md](ONCHAIN
 
 Use manual checks on concise, explicitly dated public announcements. Faucet GEN funds Studio transactions; available faucet funds and network/model quotas are not guaranteed indefinitely. No recurring server costs or paid APIs are required by this implementation. Wallet approvals are required for each onchain action. Local storage keeps only the last transaction ID.
 
-Sources are owner selected and are not certified official. The candidate limits each owner to eight monitors with owner-scoped IDs, plus 256 records per monitor. It removes the shared 128-monitor ceiling. Per-address quotas isolate ordinary accounts but do not fully prevent Sybil activity across multiple addresses. The candidate is not deployed yet.
+Sources are owner selected and are not certified official. The candidate limits each owner to eight monitors with owner-scoped IDs, plus 256 records per monitor. It removes the shared 128-monitor ceiling. Per-address quotas isolate ordinary accounts but do not fully prevent Sybil activity across multiple addresses. The new deployment is user-confirmed; independent deployed-source verification and new frontend live acceptance remain pending.
 
 MIT licensed. All contract source, frontend code and build configuration needed for this product are included.
