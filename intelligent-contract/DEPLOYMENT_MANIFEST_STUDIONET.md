@@ -6,14 +6,14 @@
 - Official RPC: https://studio.genlayer.com/api.
 - Contract: `0x6022e1Dba86A150e420bd4f027c6C2eD4a5487b4`.
 - Deployment status: `DEPLOYED_USER_REPORTED`.
-- Independent deployed-source status: `SOURCE_VERIFICATION_PENDING`.
-- Expected candidate SHA256: `c24e2801e3e7266a2858596a248b3fd99801dce993e1398c3bd6840f90321d54` (repository bytes only).
+- Source identity: `VERIFIED (MANUAL_LOCAL_CHROME)`, through the user-provided Explorer/A SHA256 comparison and existing A/B candidate byte equality; cloud independent retrieval remains blocked.
+- Manually compared source SHA256: `c24e2801e3e7266a2858596a248b3fd99801dce993e1398c3bd6840f90321d54`; both compared sources measured 10,516 characters / 10,516 UTF-8 bytes. See [source provenance](SOURCE_PROVENANCE.md) for origin, exact covered commits and limits.
 - Deployment transaction: not supplied; no new hash is asserted.
 - Owner: `0xEB56F245EFEceD0899b7e23697FeE512a39DBdCc`; monitor: `cf-peering-20261018`.
 - User-confirmed Studio reads: count 1, owner count 1, OPERATIONAL, revision 1, checks 1; record 1 returned successfully.
 - New public frontend: not published; live frontend read-only acceptance pending.
 
-These statuses are separate. FAST-4 does not perform fresh Studio tests or RPC reads. See [source provenance](SOURCE_PROVENANCE.md) for byte equality and verification limits.
+These statuses are separate. FAST-6 only synchronizes Markdown; deployment.json is unchanged and still has prior pending metadata. Official RPC 403/1010 has no demonstrated resolution. No fresh Studio tests, RPC reads, integration or publication occur here. See [source provenance](SOURCE_PROVENANCE.md) for byte equality and verification limits.
 
 ## Historical deployment — original evidence retained
 
