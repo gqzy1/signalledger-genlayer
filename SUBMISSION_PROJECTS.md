@@ -1,27 +1,33 @@
-> **Draft status: NOT READY FOR RESUBMISSION.** The contract security fix is prepared but not deployed. Refresh the live contract address, source hash, public example and transaction evidence after the new deployment before submitting this Projects entry.
+> **Draft status: NOT READY FOR RESUBMISSION.** The new deployment is user-confirmed; independent source verification, candidate integration and new frontend live acceptance are pending. FAST-4 does not submit the Portal.
 
 # Projects — SignalLedger
 
 ## Name and description
+
 SignalLedger — Read the signal. Record the shift.
 
-A static React application that uses the deployed SignalLedger Intelligent Contract to bind a service scope and announcement source, request an independently verified interpretation, and read finalized state history. The public verified example loads real chain records without a wallet; owner writes use an EIP-1193 browser wallet or OKX Wallet. The application verifies the complete deployed contract source before enabling a binding, checks the network/account before writes, and tracks finality, consensus and execution separately.
+A static React product that binds an immutable service scope and announcement source to a GenLayer contract, then reads finalized announcement interpretations and state history. UNKNOWN preserves the last accepted state. This is announcement interpretation, not measured uptime or source certification.
 
-UNKNOWN is visible as an observation and preserves the last accepted state; source-update and checked timestamps remain visible. The sample service is explicitly synthetic test data. Announcement interpretation is not a live uptime measurement or a source certification.
+Runtime binding verifies chain 61999 and hashes fetched deployed source before allowing a binding. Owner actions use an EIP-1193 wallet or OKX Wallet; guest reads require no wallet. These capabilities in the candidate are separate from the currently published historical build.
 
-## Links
-- Website: https://gqzy1.github.io/signalledger-genlayer/
-- Verified onchain example: https://gqzy1.github.io/signalledger-genlayer/?w=1
+## Current and historical links
+
+- Website (historical release, old contract): https://gqzy1.github.io/signalledger-genlayer/
+- Published historical example: https://gqzy1.github.io/signalledger-genlayer/?w=1
 - Repository: https://github.com/gqzy1/signalledger-genlayer
-- Canonical contract: https://explorer-studio.genlayer.com/address/0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247
+- New contract (`DEPLOYED_USER_REPORTED`): https://explorer-studio.genlayer.com/address/0x6022e1Dba86A150e420bd4f027c6C2eD4a5487b4
+- Historical contract and original transaction evidence: https://explorer-studio.genlayer.com/address/0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247
+
+The user confirmed owner `0xEB56F245EFEceD0899b7e23697FeE512a39DBdCc` / monitor `cf-peering-20261018`, OPERATIONAL / revision 1 / checks 1, count and owner count 1, and successful record 1 in Studio. Independent deployed-source bytes/hash remain `SOURCE_VERIFICATION_PENDING`. No new deployment transaction hash has been supplied. The old six transaction hashes are not new-deployment evidence.
 
 ## Evidence and supplementary URLs for this track
-1. https://github.com/gqzy1/signalledger-genlayer/blob/main/PRODUCT_ACCEPTANCE_REPORT.md
-2. https://github.com/gqzy1/signalledger-genlayer/blob/main/DEMO.md
-3. https://github.com/gqzy1/signalledger-genlayer/blob/main/deployment.json
-4. https://github.com/gqzy1/signalledger-genlayer/blob/main/intelligent-contract/SOURCE_PROVENANCE.md
-5. https://gqzy1.github.io/signalledger-genlayer/?w=1
 
-These links document the published product, verifiable onchain state and source provenance separately from the Intelligent Contracts repository's evidence. The complete Python contract at intelligent-contract/contracts/signal_ledger.py is byte-for-byte identical to the canonical deployed source. The repository is MIT licensed. Portal submission status is not inferred from this file.
+1. https://github.com/gqzy1/signalledger-genlayer/blob/fix/frontend-finalized-reads-20261019/FRONTEND_READ_REMEDIATION_REPORT.md
+2. https://github.com/gqzy1/signalledger-genlayer/pull/3
+3. https://github.com/gqzy1/signalledger-genlayer/tree/docs/fast4-provenance-20261019
+4. https://github.com/gqzy1/signalledger-genlayer/blob/main/ONCHAIN_REPORT.md (old deployment only)
+5. https://gqzy1.github.io/signalledger-genlayer/?w=1 (published old build only)
 
-Read PRODUCT_ACCEPTANCE_REPORT.md for the exact browser and wallet testing coverage. Unit tests are not represented as live browser-wallet writes; official Studio signing and extension signing have separate statuses.
+The included candidate source is byte-for-byte identical to Repository A candidate commit `65da22cdbf3faf46bd104a5ce2e3d9fa4f93c873`, expected SHA256 `c24e2801e3e7266a2858596a248b3fd99801dce993e1398c3bd6840f90321d54`; that equality does not prove new deployed-source equality. The repository is MIT licensed.
+
+Before submission, integrate reviewed Draft candidates in the documented order, capture independent deployed-source equality, publish the new frontend under separate authorization and complete one targeted public read-only acceptance. Replace branch-scoped links with integrated permanent evidence when appropriate. Unit tests, Studio signing and product extension-wallet E2E are separate statuses; no simulated signing is live wallet evidence.
