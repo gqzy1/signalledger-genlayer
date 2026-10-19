@@ -1,6 +1,6 @@
-> **Version scope:** This walkthrough contains historical examples. New address 0x6022e1Dba86A150e420bd4f027c6C2eD4a5487b4 is DEPLOYED_USER_REPORTED; independent source verification and new frontend publication/acceptance are pending. The public website still uses 0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247. Historical transaction links belong only to that old deployment.
+> **Version scope:** This walkthrough contains historical examples. New address 0x6022e1Dba86A150e420bd4f027c6C2eD4a5487b4 is DEPLOYED_USER_REPORTED; source identity is VERIFIED through the recorded manual comparison, while integration and new frontend publication/acceptance remain pending. Cloud RPC 403/1010 has no demonstrated resolution; see [source provenance](intelligent-contract/SOURCE_PROVENANCE.md). The public website still uses 0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247. Historical transaction links belong only to that old deployment.
 
-> **Historical walkthrough.** The public example below refers to the previous deployed source. The new owner-scoped address is user-confirmed, but its independent source verification and new frontend publication/acceptance are pending. This old walkthrough is not new-deployment acceptance.
+> **Historical walkthrough.** The public example below refers to the previous deployed source. The new owner-scoped address is user-confirmed, with source identity VERIFIED by the documented manual evidence; its new frontend publication/acceptance is still pending. This old walkthrough is not new-deployment acceptance.
 
 # SignalLedger walkthrough
 

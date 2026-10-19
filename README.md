@@ -1,4 +1,4 @@
-> **Release preparation, not a new release.** The owner-scoped deployment is user-confirmed; independent deployed-source verification is pending. The public website still serves the historical contract. See the three statuses below.
+> **Release preparation, not a new release.** The owner-scoped deployment is user-confirmed; source identity is VERIFIED through the user-performed local Chrome comparison and existing A/B byte identity. The public website still serves the historical contract. See the three statuses below.
 
 # SignalLedger
 
@@ -26,10 +26,10 @@ An UNKNOWN observation preserves the previous accepted state. Source update and 
 | Dimension | Current status |
 |---|---|
 | New deployment | `DEPLOYED_USER_REPORTED`: `0x6022e1Dba86A150e420bd4f027c6C2eD4a5487b4` on Stable Studionet 61999. |
-| Independent source verification | `SOURCE_VERIFICATION_PENDING`; expected candidate SHA256 `c24e2801e3e7266a2858596a248b3fd99801dce993e1398c3bd6840f90321d54`. |
+| Source identity | `VERIFIED (MANUAL_LOCAL_CHROME)` for the frozen A/B candidates; SHA256 `c24e2801e3e7266a2858596a248b3fd99801dce993e1398c3bd6840f90321d54`. Cloud retrieval is still blocked. |
 | Published website | Historical release using `0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247`; new frontend not published or accepted. |
 
-The user confirmed Studio count 1, owner count 1, monitor `cf-peering-20261018` under owner `0xEB56F245EFEceD0899b7e23697FeE512a39DBdCc`, OPERATIONAL / revision 1 / checks 1, and successful record 1. This is user-confirmed evidence. No new deployment hash is asserted. Six original transactions and historical outage/recovery/UNKNOWN acceptance remain attached only to the old deployment. See [source provenance](intelligent-contract/SOURCE_PROVENANCE.md) and [product acceptance](PRODUCT_ACCEPTANCE_REPORT.md).
+The user confirmed Studio count 1, owner count 1, monitor `cf-peering-20261018` under owner `0xEB56F245EFEceD0899b7e23697FeE512a39DBdCc`, OPERATIONAL / revision 1 / checks 1, and successful record 1. This is user-confirmed evidence. No new deployment hash is asserted. [Source provenance](intelligent-contract/SOURCE_PROVENANCE.md) records the manual evidence and explains why unchanged deployment.json metadata still says pending. Six original transactions and historical outage/recovery/UNKNOWN acceptance remain attached only to the old deployment. See [source provenance](intelligent-contract/SOURCE_PROVENANCE.md) and [product acceptance](PRODUCT_ACCEPTANCE_REPORT.md).
 
 [Open the product](https://gqzy1.github.io/signalledger-genlayer/) · [Published historical example, no wallet](https://gqzy1.github.io/signalledger-genlayer/?w=1)
 
@@ -61,6 +61,6 @@ Read [DEMO.md](DEMO.md) for the product walkthrough, [ONCHAIN_REPORT.md](ONCHAIN
 
 Use manual checks on concise, explicitly dated public announcements. Faucet GEN funds Studio transactions; available faucet funds and network/model quotas are not guaranteed indefinitely. No recurring server costs or paid APIs are required by this implementation. Wallet approvals are required for each onchain action. Local storage keeps only the last transaction ID.
 
-Sources are owner selected and are not certified official. The candidate limits each owner to eight monitors with owner-scoped IDs, plus 256 records per monitor. It removes the shared 128-monitor ceiling. Per-address quotas isolate ordinary accounts but do not fully prevent Sybil activity across multiple addresses. The new deployment is user-confirmed; independent deployed-source verification and new frontend live acceptance remain pending.
+Sources are owner selected and are not certified official. The candidate limits each owner to eight monitors with owner-scoped IDs, plus 256 records per monitor. It removes the shared 128-monitor ceiling. Per-address quotas isolate ordinary accounts but do not fully prevent Sybil activity across multiple addresses. The new deployment is user-confirmed; manual source identity is VERIFIED, while integration, release authorization and new frontend public acceptance remain pending. Official cloud RPC 403/1010 has no demonstrated resolution.
 
 MIT licensed. All contract source, frontend code and build configuration needed for this product are included.

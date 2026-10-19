@@ -1,19 +1,20 @@
-# SignalLedger acceptance status — FAST-4
+# SignalLedger acceptance status — FAST-6 documentation sync
 
 ## Current owner-scoped deployment and frontend candidate
 
 - Contract `0x6022e1Dba86A150e420bd4f027c6C2eD4a5487b4`: `DEPLOYED_USER_REPORTED`, Stable Studionet 61999.
-- Independent deployed bytes/hash: `SOURCE_VERIFICATION_PENDING`; candidate hash `c24e2801e3e7266a2858596a248b3fd99801dce993e1398c3bd6840f90321d54` is verified only against repository source.
+- Source identity: `VERIFIED (MANUAL_LOCAL_CHROME)`, based on the user-provided comparison of Explorer deployment-transaction source and A fixed source plus the existing frozen A/B byte-identity chain. Both measured 10,516 UTF-8 bytes, SHA256 `c24e2801e3e7266a2858596a248b3fd99801dce993e1398c3bd6840f90321d54`. This is not a cloud RPC capture; see [source provenance](intelligent-contract/SOURCE_PROVENANCE.md).
 - User-confirmed Studio baseline: owner `0xEB56F245EFEceD0899b7e23697FeE512a39DBdCc`, monitor `cf-peering-20261018`; count 1 / owner count 1 / OPERATIONAL / revision 1 / checks 1; record 1 succeeds.
-- PR #3 at `ae7efbba417c4655c9d7ae9d7ebc59c4b843ba8b`: existing 54/54 offline tests, source check and build PASS; GitHub CI SUCCESS. These unchanged tests are reused for this documentation-only change.
+- PR #3 at `ae7efbba417c4655c9d7ae9d7ebc59c4b843ba8b`: existing 54/54 offline tests, source check and build PASS; GitHub CI SUCCESS. These unchanged tests are reused for this documentation-only change; FAST-6 does not rerun tests or production builds.
 - New frontend public acceptance: NOT RUN; no new frontend release has occurred. HTTP 200 for old static assets is not RPC success or correct new monitor rendering.
 - Published version remains application commit `46adcd5e79f335fe4a1a213fd806ec8d10c88014`, Pages run `38383958340`, old address `0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247`, JS `index-h-nLNUaO.js`. Prior final review fetched HTTP 200 HTML/JS containing the old address and not the new address.
 - Dependency changes have their own isolated Draft PR and audit/validation report; this documentation change does not upgrade packages or repeat tests.
+- Official cloud RPC 403/1010 remains unresolved; deployment.json is unchanged and retains older pending metadata. Source identity VERIFIED does not approve final integration, publication or public acceptance.
 - No new deployment transaction hash supplied. Six original hashes remain historical. No FAST-4 transaction, source mutation, RPC/Studio retest, Pages publication or Portal submission.
 
 ## Historical scope of every PASS below
 
-All original deployment, browser, source-hash and Projects READY statements below apply only to the old deployment `0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247` and the archived October 13 release. They are retained as historical evidence and do not certify the new deployment or authorize resubmission. Current submission status is NOT READY pending integration, source verification, publication and targeted live acceptance.
+All original deployment, browser, source-hash and Projects READY statements below apply only to the old deployment `0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247` and the archived October 13 release. They are retained as historical evidence and do not certify the new deployment or authorize resubmission. Current submission status is NOT READY pending integration, authorized configuration/status synchronization, publication and targeted live acceptance; manual source identity is now VERIFIED.
 
 # Historical SignalLedger product acceptance
 
