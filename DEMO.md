@@ -1,6 +1,8 @@
-> **Version scope:** This walkthrough contains historical examples. New address 0x6022e1Dba86A150e420bd4f027c6C2eD4a5487b4 is DEPLOYED_USER_REPORTED; source identity is VERIFIED through the recorded manual comparison, while integration and new frontend publication/acceptance remain pending. Cloud RPC 403/1010 has no demonstrated resolution; see [source provenance](intelligent-contract/SOURCE_PROVENANCE.md). The public website still uses 0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247. Historical transaction links belong only to that old deployment.
+> **Current owner-scoped public frontend.** Pages [#4](https://github.com/gqzy1/signalledger-genlayer/actions/runs/39214181853) successfully published `3edf396b00cbc5025b222ab8b6708db43792baca`. The user completed public source binding and monitor reads: OPERATIONAL / revision 1 / checks 1, history UNKNOWN → OPERATIONAL, record digest `3493caca77d291c3efd5e98c1e5f8687d5a32f6d03f19e302e2b77c52d1887ba`. This is user-reported public acceptance, not a new cloud RPC capture. The current production commit/run/bundle record is [release.json](https://gqzy1.github.io/signalledger-genlayer/release.json); deployment.json retains the explicitly dated pre-reconciliation snapshot rather than predicting a future run.
 
-> **Historical walkthrough.** The public example below refers to the previous deployed source. The new owner-scoped address is user-confirmed, with source identity VERIFIED by the documented manual evidence; its new frontend publication/acceptance is still pending. This old walkthrough is not new-deployment acceptance.
+For the current read-only monitor, bind the configured contract and load `0xeb56f245efeced0899b7e23697fee512a39dbdcc::cf-peering-20261018`. Expected user-confirmed history: UNKNOWN → OPERATIONAL, revision/checks 1. Do not run a new check or create a monitor to repeat this acceptance.
+
+> **Historical walkthrough below.** The remaining example and six transactions belong only to the old deployment. Its public URLs now open the current release; the old monitor/four-observation narrative is preserved as historical evidence, not current acceptance.
 
 # SignalLedger walkthrough
 

@@ -2,7 +2,7 @@
 
 Canonical repository: https://github.com/gqzy1/signal-ledger-primitive
 
-Canonical candidate: `contracts/signal_ledger.py` at `65da22cdbf3faf46bd104a5ce2e3d9fa4f93c873` (Repository A Draft PR #2).
+Canonical candidate: `contracts/signal_ledger.py` at `65da22cdbf3faf46bd104a5ce2e3d9fa4f93c873` (Repository A merged PR #2).
 
 The complete candidate in `intelligent-contract/contracts/signal_ledger.py` is byte-for-byte identical to that canonical candidate. Both Git blob IDs are `a3d28492b07ad5ef10bb82b8cf9d147d0fbf32a5`; local candidate SHA256 is `c24e2801e3e7266a2858596a248b3fd99801dce993e1398c3bd6840f90321d54`. FAST-4 does not alter either contract source.
 
@@ -12,7 +12,7 @@ The complete candidate in `intelligent-contract/contracts/signal_ledger.py` is b
 |---|---|---|
 | New contract deployment | DEPLOYED_USER_REPORTED | Stable Studionet 61999, `0x6022e1Dba86A150e420bd4f027c6C2eD4a5487b4`; the user confirmed successful Studio reads. |
 | New source identity | VERIFIED — MANUAL_LOCAL_CHROME | User-performed local Chrome comparison returned `c24e2801e3e7266a2858596a248b3fd99801dce993e1398c3bd6840f90321d54` for Explorer deployment-transaction source and A fixed source; existing A/B byte equality extends coverage to the frozen B candidates. No cloud retrieval or new transaction hash is asserted. |
-| Published website | HISTORICAL_RELEASE | The public website still serves the previous deployment `0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247`; the new frontend has not been published or accepted. |
+| Published website | PUBLISHED_USER_READ_ONLY_ACCEPTED | Pages #4 published the integrated owner-scoped frontend; the user confirmed source binding, OPERATIONAL / revision 1 / checks 1, history and evidence digest. Current production commit/run/bundle: [release.json](https://gqzy1.github.io/signalledger-genlayer/release.json). |
 
 User-confirmed Studio baseline: `get_count()` = 1; `get_owner_count("0xEB56F245EFEceD0899b7e23697FeE512a39DBdCc")` = 1; `get_monitor("0xEB56F245EFEceD0899b7e23697FeE512a39DBdCc::cf-peering-20261018")` returns OPERATIONAL, revision 1, checks 1; `get_record(monitor_ref, 1)` succeeds. These are user-confirmed results, not FAST-4 independently executed reads.
 
@@ -24,7 +24,11 @@ The user reported the local Chrome result on 2026-10-19 at 14:07:09 Asia/Shangha
 
 Existing GitHub byte evidence covers B #2 `a6d103828c2cb8140a1b24a6377fb8971b45fd9e`, B #3 `ae7efbba417c4655c9d7ae9d7ebc59c4b843ba8b`, B #4 `1b2242de42f9860e865dc9e077c9a51eb93909d1` and B #5 `cf4cfccd1bd276f511402f95b320a836fef7c0b5`: their contract blob equals A, and the child changes do not edit it. FAST-6 documentation-only descendants preserve that source identity. Coverage does not extend to arbitrary future source edits or the old main/public build. [A counterpart evidence record](https://github.com/gqzy1/signal-ledger-primitive/blob/docs/fast6-deployment-status-20261019/SOURCE_VERIFICATION.md).
 
-**Configuration boundary:** FAST-6 changes only Markdown. The unchanged deployment.json `SOURCE_VERIFICATION_PENDING` field is older machine-readable metadata, awaiting separate configuration authorization; this document records the newer manual VERIFIED evidence. Deployment remains DEPLOYED_USER_REPORTED, and the public website remains the historical release. Source equality is not integration, publication or live frontend acceptance.
+**Current configuration boundary:** FAST-6 changed only Markdown; final reconciliation now synchronizes deployment.json to VERIFIED (MANUAL_LOCAL_CHROME), preserving DEPLOYED_USER_REPORTED and all historical addresses/transactions. All seven candidates are merged. The user-reported public acceptance, build/deploy records and manual source evidence remain separately attributed. Source equality alone is never publication or frontend acceptance.
+
+Pages [#4](https://github.com/gqzy1/signalledger-genlayer/actions/runs/39214181853) successfully published `3edf396b00cbc5025b222ab8b6708db43792baca`. The user completed public source binding and monitor reads: OPERATIONAL / revision 1 / checks 1, history UNKNOWN → OPERATIONAL, record digest `3493caca77d291c3efd5e98c1e5f8687d5a32f6d03f19e302e2b77c52d1887ba`. This is user-reported public acceptance, not a new cloud RPC capture. The current production commit/run/bundle record is [release.json](https://gqzy1.github.io/signalledger-genlayer/release.json); deployment.json retains the explicitly dated pre-reconciliation snapshot rather than predicting a future run.
+
+The current A/main 04e019f3a55f5385450612ded0a3ffd0a263a6ad and integrated B/main 3edf396b00cbc5025b222ab8b6708db43792baca retain identical 10,516-byte contract source. This is current repository byte identity, not a newly acquired cloud deployment export. The official Cloudflare incident https://www.cloudflarestatus.com/incidents/wpvuoqdcmu2k resolved at 2026-10-18T08:50:00Z (16:50 Asia/Shanghai); that service-announcement time does not prove Studio/Explorer access restrictions are universally removed.
 
 The frontend still retrieves deployed source bytes, computes SHA256, checks chain 61999 and rejects binding on mismatch. Removing the obsolete pending-deployment guard did not remove that runtime protection. Local `npm run check:source` verifies repository consistency only.
 

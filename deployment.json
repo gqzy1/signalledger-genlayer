@@ -4,7 +4,7 @@
   "rpc": "https://studio.genlayer.com/api",
   "contractAddress": "0x6022e1Dba86A150e420bd4f027c6C2eD4a5487b4",
   "sourceSha256": "c24e2801e3e7266a2858596a248b3fd99801dce993e1398c3bd6840f90321d54",
-  "sourceVerification": "Expected candidate repository SHA256 only. Independent deployed-source bytes/hash capture is pending; browser runtime verification remains mandatory.",
+  "sourceVerification": "User-performed local Chrome comparison of Explorer deployment-transaction source and Repository A fixed commit 65da22cdbf3faf46bd104a5ce2e3d9fa4f93c873: both 10,516 UTF-8 bytes with the configured SHA256. Repository A/B source identity is preserved. This is not a cloud independent retrieval; runtime chain/source verification remains mandatory.",
   "deploymentStatus": "DEPLOYED_USER_REPORTED",
   "monitorOwner": "0xEB56F245EFEceD0899b7e23697FeE512a39DBdCc",
   "monitorId": "cf-peering-20261018",
@@ -72,15 +72,50 @@
     },
     "monitorOwner": "0xf38Fd10816b18FfAc55b4c523cE40D2DB313fc33"
   },
-  "sourceVerificationStatus": "SOURCE_VERIFICATION_PENDING",
+  "sourceVerificationStatus": "VERIFIED (MANUAL_LOCAL_CHROME)",
   "publishedWebsite": {
     "url": "https://gqzy1.github.io/signalledger-genlayer/",
-    "status": "HISTORICAL_RELEASE_NEW_FRONTEND_NOT_PUBLISHED",
-    "contractAddress": "0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247",
-    "applicationCommit": "46adcd5e79f335fe4a1a213fd806ec8d10c88014",
-    "pagesRun": "https://github.com/gqzy1/signalledger-genlayer/actions/runs/38383958340",
-    "bundle": "assets/index-h-nLNUaO.js",
-    "bundleSha256": "554fd4db62eeda09ef404eedc9a67f0da25ac68c43150372e3938e3317797798",
-    "evidence": "Prior final-review static GET: HTML and JS HTTP 200 on 2026-10-19; JS contains historical address and not new address. Not a new-release or live RPC acceptance."
+    "status": "PUBLISHED_USER_READ_ONLY_ACCEPTED",
+    "contractAddress": "0x6022e1Dba86A150e420bd4f027c6C2eD4a5487b4",
+    "currentReleaseMetadata": "https://gqzy1.github.io/signalledger-genlayer/release.json",
+    "metadataSemantics": "lastConfirmedRelease is the immutable observed pre-reconciliation snapshot, not a prediction of this commit or a future workflow. The currently served release.json supplies the actual deployed commit, Pages run and bundle digest after each publication.",
+    "lastConfirmedRelease": {
+      "applicationCommit": "3edf396b00cbc5025b222ab8b6708db43792baca",
+      "pagesRun": "https://github.com/gqzy1/signalledger-genlayer/actions/runs/39214181853",
+      "pagesRunId": 39214181853,
+      "build": "success",
+      "deploy": "success",
+      "bundle": "assets/index-CeU5nQHj.js",
+      "bundleSha256": "215c2aee1c856ed5b5cfd19632555dadf07c06c60a47b44478da790ad770ccca",
+      "observedAt": "2026-10-19T08:13:24.424776+00:00",
+      "evidence": "GitHub Pages #4 build/deploy success plus actual production HTML/JS bytes. HTTP success is not independently executed monitor acceptance."
+    },
+    "publicReadOnlyAcceptance": {
+      "status": "PASS_USER_REPORTED",
+      "provenance": "User completed these steps on the public website and supplied results in the final-release request on 2026-10-19; exact manual execution time was not separately supplied. Not relabeled as cloud independent acceptance.",
+      "monitorReference": "0xeb56f245efeced0899b7e23697fee512a39dbdcc::cf-peering-20261018",
+      "sourceBinding": "PASS_USER_REPORTED",
+      "latestObservation": "OPERATIONAL",
+      "currentAcceptedState": "OPERATIONAL",
+      "revision": 1,
+      "checks": 1,
+      "history": {
+        "revision": 1,
+        "before": "UNKNOWN",
+        "after": "OPERATIONAL",
+        "source_sha256": "3493caca77d291c3efd5e98c1e5f8687d5a32f6d03f19e302e2b77c52d1887ba"
+      },
+      "accessRestrictionStatus": "Historical official RPC/Explorer HTTP 403 / Cloudflare 1010 is not independently shown to be resolved for all environments."
+    },
+    "historicalRelease": {
+      "url": "https://gqzy1.github.io/signalledger-genlayer/",
+      "status": "HISTORICAL_RELEASE_NEW_FRONTEND_NOT_PUBLISHED",
+      "contractAddress": "0x468aCd1d9B4db1527d92Bc41Fc76d4016eb11247",
+      "applicationCommit": "46adcd5e79f335fe4a1a213fd806ec8d10c88014",
+      "pagesRun": "https://github.com/gqzy1/signalledger-genlayer/actions/runs/38383958340",
+      "bundle": "assets/index-h-nLNUaO.js",
+      "bundleSha256": "554fd4db62eeda09ef404eedc9a67f0da25ac68c43150372e3938e3317797798",
+      "evidence": "Prior final-review static GET: HTML and JS HTTP 200 on 2026-10-19; JS contains historical address and not new address. Not a new-release or live RPC acceptance."
+    }
   }
 }
