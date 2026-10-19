@@ -14,8 +14,7 @@ export async function verifyContract(value:string){
  const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(code));
  const hash=Array.from(new Uint8Array(digest),v=>v.toString(16).padStart(2,'0')).join('');
  if(hash!==manifest.sourceSha256) throw new Error('Contract source differs from the official SignalLedger source.');
- if(manifest.candidateRemediation?.status==='PENDING_DEPLOYMENT') throw new Error('Steward security remediation is not deployed yet. Contract reads and writes are disabled until the new deployment is verified.');
- await reader.readContract({address:target,functionName:'get_count',args:[],transactionHashVariant:TransactionHashVariant.LATEST_FINAL});
+ await read(target,'get_count',[]);
  return target;
 }
 export async function connect(provider:Provider){
@@ -37,7 +36,11 @@ export async function ensureChain(provider:Provider){
  if(Number(await provider.request({method:'eth_chainId'}))!==CHAIN_ID) throw new Error('Wallet must use Stable Studionet 61999.');
 }
 export async function read(target:`0x${string}`,method:string,args:(string|number)[]){
- return reader.readContract({address:target,functionName:method,args,transactionHashVariant:TransactionHashVariant.LATEST_FINAL});
+ try {
+  return await reader.readContract({address:target,functionName:method,args,transactionHashVariant:TransactionHashVariant.LATEST_FINAL});
+ } catch(error){
+  throw new Error(`Finalized read ${method}(${JSON.stringify(args)}) at ${target} failed. ${error instanceof Error?error.message:String(error)}`,{cause:error});
+ }
 }
 export async function write(provider:Provider,account:`0x${string}`,target:`0x${string}`,method:string,args:(string|number)[]){
  await ensureChain(provider);

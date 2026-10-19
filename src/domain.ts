@@ -13,17 +13,37 @@ export function monitorReference(owner:string,id:string):string {
   if(!/^[a-z0-9][a-z0-9_-]{0,47}$/.test(id)) throw new Error('Enter a valid lowercase monitor ID.');
   return `${normalized}::${id}`;
 }
+export function resolveMonitorReference(input:string,account?:string):string {
+  if(input.includes('::')){
+    const parts=input.split('::');
+    if(parts.length!==2) throw new Error('Use owner-address::monitor-id for public reads.');
+    return monitorReference(parts[0],parts[1]);
+  }
+  if(account) return monitorReference(account,input);
+  throw new Error('Connect the monitor owner wallet, or enter owner-address::monitor-id for public reads.');
+}
 export function validateMonitor(id:string,scope:string,url:string){
   if(!/^[a-z0-9][a-z0-9_-]{0,47}$/.test(id)) throw new Error('Use a lowercase ID, up to 48 letters, numbers, _ or -.');
   if(!scope.trim() || scope.length>160 || /[\x00-\x1f]/.test(scope)) throw new Error('Specify the exact service, component and region (up to 160 characters).');
   let parsed: URL; try {parsed=new URL(url)} catch {throw new Error('Enter a public HTTPS source URL.')}
   if(parsed.protocol!=='https:' || parsed.username || parsed.password || parsed.port || parsed.search || parsed.hash || url.length>512 || !/^https:\/\/[a-z0-9.-]+(?:\/[^\s?#\\]*)?$/.test(url) || !/\.[a-z]{2,24}$/.test(parsed.hostname) || /(^|\.)(localhost|local|internal|test|example|invalid|home|lan)$/.test(parsed.hostname)) throw new Error('Use public HTTPS, without credentials, ports, query or fragment.');
 }
+function parseContractJson(raw:unknown,method:string):Record<string,unknown> {
+  if(typeof raw!=='string') throw new Error(`Invalid ${method} response: expected a JSON string.`);
+  let data:unknown;
+  try {data=JSON.parse(raw)} catch {throw new Error(`Invalid ${method} JSON response.`)}
+  if(!data || typeof data!=='object' || Array.isArray(data)) throw new Error(`Invalid ${method} response object.`);
+  return data as Record<string,unknown>;
+}
 export function parseMonitor(raw:unknown):Monitor {
-  if(typeof raw!=='string') throw new Error('Unexpected contract response.');
-  const data=JSON.parse(raw) as Monitor;
-  if(!STATES.includes(data.state) || !Number.isInteger(data.revision) || data.revision<0 || typeof data.owner!=='string' || typeof data.url!=='string' || typeof data.scope!=='string') throw new Error('Invalid monitor response.');
-  return data;
+  const data=parseContractJson(raw,'get_monitor');
+  if(!STATES.includes(data.state as State) || !Number.isSafeInteger(data.revision) || (data.revision as number)<0 || !Number.isSafeInteger(data.checks) || (data.checks as number)<0 || ['id','owner','url','scope','last_event','last_checked'].some(k=>typeof data[k]!=='string')) throw new Error('Invalid get_monitor response fields.');
+  return data as unknown as Monitor;
+}
+export function parseRecord(raw:unknown):RecordItem {
+  const data=parseContractJson(raw,'get_record');
+  if(['signal','before','after'].some(k=>!STATES.includes(data[k] as State)) || !Number.isSafeInteger(data.revision) || (data.revision as number)<1 || ['updated_at','quote','source_sha256','disposition','checked_at','url','scope'].some(k=>typeof data[k]!=='string')) throw new Error('Invalid get_record response fields.');
+  return data as unknown as RecordItem;
 }
 export function json(value:unknown){return JSON.stringify(value,(_,v)=>typeof v==='bigint'?v.toString():v,2)}
 export function receiptState(tx:unknown):'pending'|'success'|'failed'|'unverified' {
