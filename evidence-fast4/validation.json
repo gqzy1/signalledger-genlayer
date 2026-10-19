@@ -1,0 +1,45 @@
+{
+  "node": "22.23.3",
+  "npm": "10.9.9",
+  "baselineCommit": "ae7efbba417c4655c9d7ae9d7ebc59c4b843ba8b",
+  "baselineLockSha256": "147488d0d0ceb79a4856aec0da4bc909e266ab6b6787d89b2eb2c66252aa28e6",
+  "finalLockSha256": "6a78fd53fb0a0972f3c9ddf92a6527da5a4c083871a3a08f0114e1099b6a128c",
+  "commands": {
+    "npm ci": 0,
+    "npm audit --json": 0,
+    "npm ls --all --json": 0,
+    "npm run check:source": 0,
+    "npm test": 0,
+    "npm run build": 0
+  },
+  "tests": {
+    "passed": 54,
+    "files": 3
+  },
+  "baselineAudit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 1,
+    "high": 1,
+    "critical": 2,
+    "total": 4
+  },
+  "finalAudit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "productionLockEntriesUnchanged": true,
+  "contractAndRuntimeVerificationUnchanged": true,
+  "sourceSha256": "c24e2801e3e7266a2858596a248b3fd99801dce993e1398c3bd6840f90321d54",
+  "finalVersions": {
+    "vite": "7.3.6",
+    "vitest": "4.1.11",
+    "@vitest/mocker": "4.1.11",
+    "esbuild": "0.28.2"
+  },
+  "tinypoolPresent": false
+}

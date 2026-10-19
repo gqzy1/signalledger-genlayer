@@ -1,0 +1,197 @@
+{
+  "vite": {
+    "node": "node_modules/vite",
+    "version": "7.1.7",
+    "dev": true,
+    "optional": false,
+    "paths": [
+      {
+        "packages": [
+          "signalledger",
+          "@vitejs/plugin-react@5.0.3",
+          "vite@7.1.7"
+        ],
+        "edgeKinds": [
+          "devDependencies",
+          "peerDependencies"
+        ]
+      },
+      {
+        "packages": [
+          "signalledger",
+          "vite@7.1.7"
+        ],
+        "edgeKinds": [
+          "devDependencies"
+        ]
+      },
+      {
+        "packages": [
+          "signalledger",
+          "vitest@3.2.4",
+          "@vitest/mocker@3.2.4",
+          "vite@7.1.7"
+        ],
+        "edgeKinds": [
+          "devDependencies",
+          "dependencies",
+          "peerDependencies"
+        ]
+      },
+      {
+        "packages": [
+          "signalledger",
+          "vitest@3.2.4",
+          "vite@7.1.7"
+        ],
+        "edgeKinds": [
+          "devDependencies",
+          "dependencies"
+        ]
+      },
+      {
+        "packages": [
+          "signalledger",
+          "vitest@3.2.4",
+          "vite-node@3.2.4",
+          "vite@7.1.7"
+        ],
+        "edgeKinds": [
+          "devDependencies",
+          "dependencies",
+          "dependencies"
+        ]
+      }
+    ]
+  },
+  "vitest": {
+    "node": "node_modules/vitest",
+    "version": "3.2.4",
+    "dev": true,
+    "optional": false,
+    "paths": [
+      {
+        "packages": [
+          "signalledger",
+          "vitest@3.2.4"
+        ],
+        "edgeKinds": [
+          "devDependencies"
+        ]
+      }
+    ]
+  },
+  "@vitest/mocker": {
+    "node": "node_modules/@vitest/mocker",
+    "version": "3.2.4",
+    "dev": true,
+    "optional": false,
+    "paths": [
+      {
+        "packages": [
+          "signalledger",
+          "vitest@3.2.4",
+          "@vitest/mocker@3.2.4"
+        ],
+        "edgeKinds": [
+          "devDependencies",
+          "dependencies"
+        ]
+      }
+    ]
+  },
+  "tinypool": {
+    "node": "node_modules/tinypool",
+    "version": "1.1.1",
+    "dev": true,
+    "optional": false,
+    "paths": [
+      {
+        "packages": [
+          "signalledger",
+          "vitest@3.2.4",
+          "tinypool@1.1.1"
+        ],
+        "edgeKinds": [
+          "devDependencies",
+          "dependencies"
+        ]
+      }
+    ]
+  },
+  "esbuild": {
+    "node": "node_modules/esbuild",
+    "version": "0.25.12",
+    "dev": true,
+    "optional": false,
+    "paths": [
+      {
+        "packages": [
+          "signalledger",
+          "@vitejs/plugin-react@5.0.3",
+          "vite@7.1.7",
+          "esbuild@0.25.12"
+        ],
+        "edgeKinds": [
+          "devDependencies",
+          "peerDependencies",
+          "dependencies"
+        ]
+      },
+      {
+        "packages": [
+          "signalledger",
+          "vite@7.1.7",
+          "esbuild@0.25.12"
+        ],
+        "edgeKinds": [
+          "devDependencies",
+          "dependencies"
+        ]
+      },
+      {
+        "packages": [
+          "signalledger",
+          "vitest@3.2.4",
+          "@vitest/mocker@3.2.4",
+          "vite@7.1.7",
+          "esbuild@0.25.12"
+        ],
+        "edgeKinds": [
+          "devDependencies",
+          "dependencies",
+          "peerDependencies",
+          "dependencies"
+        ]
+      },
+      {
+        "packages": [
+          "signalledger",
+          "vitest@3.2.4",
+          "vite@7.1.7",
+          "esbuild@0.25.12"
+        ],
+        "edgeKinds": [
+          "devDependencies",
+          "dependencies",
+          "dependencies"
+        ]
+      },
+      {
+        "packages": [
+          "signalledger",
+          "vitest@3.2.4",
+          "vite-node@3.2.4",
+          "vite@7.1.7",
+          "esbuild@0.25.12"
+        ],
+        "edgeKinds": [
+          "devDependencies",
+          "dependencies",
+          "dependencies",
+          "dependencies"
+        ]
+      }
+    ]
+  }
+}
